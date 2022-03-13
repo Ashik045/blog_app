@@ -47,6 +47,7 @@ const Write = () => {
             }
             setLoading(false);
         } catch (err) {
+            // error
             setAppErr(true);
             setLoading(false);
         }
