@@ -1,0 +1,26 @@
+.inp_div .signLeb {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.inp_div .signInp {
+  display: block !important;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid #696867;
+  width: 80%;
+}
+
+.inp_div .error {
+  color: red;
+  margin-top: -10px;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: none;
+}
+
+.inp_div .signInp:invalid[focused="true"] ~ .error {
+  display: block;
+}
+/*# sourceMappingURL=input.css.map */

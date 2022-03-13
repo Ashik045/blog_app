@@ -1,0 +1,68 @@
+.signUpForm {
+  background-color: #fcefee;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin-top: 70px;
+}
+
+.signUpForm .signUpForm_main {
+  padding-bottom: 50px;
+}
+
+.signUpForm .signUpForm_main img {
+  position: absolute;
+  top: -90px;
+  right: 7%;
+  width: 500px;
+  height: 500px;
+}
+
+.signUpForm .signUpForm_main .body_form {
+  width: 500px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
+  padding: 20px 20px 40px;
+}
+
+.signUpForm .signUpForm_main .body_form .fform h3 {
+  margin: 5px 0 35px;
+  text-align: center;
+  font-weight: 700;
+  color: #fc5185;
+  font-size: 29px;
+}
+
+.signUpForm .signUpForm_main .body_form .fform input[type="submit"] {
+  margin-top: 20px;
+  background-color: #88bef5;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+}
+
+.signUpForm .signUpForm_main .body_form .fform input[type="submit"]:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #35bdd8;
+}
+
+@media screen and (max-width: 576px) {
+  .signUpForm .signUpForm_main {
+    margin-top: 100px;
+  }
+  .signUpForm .signUpForm_main .body_form {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=signup.css.map */

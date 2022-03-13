@@ -1,0 +1,126 @@
+.write_section {
+  padding-bottom: 70px;
+  overflow-x: hidden;
+}
+
+.write_section .imgWrite {
+  overflow: hidden;
+  margin: 110px 0 -100px;
+}
+
+.write_section .imgWrite img {
+  width: 100% !important;
+  height: 65vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  border-radius: 15px;
+  opacity: 0.9;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.write_section .imgWrite img:hover {
+  opacity: 1;
+}
+
+.write_section .writeForm {
+  margin-top: 150px;
+}
+
+.write_section .writeForm .writeFormGroup {
+  margin-left: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.write_section .writeForm .writeFormGroup .upIcon {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.write_section .writeForm .writeFormGroup .writeInp {
+  padding: 7px 10px 10px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 2%;
+  border: none;
+  border-bottom: 3px solid #81807e;
+}
+
+.write_section .writeForm .writeFormGroup textarea {
+  font-size: 18px;
+  margin: 20px 0;
+  border: none;
+  font-weight: 500;
+}
+
+.write_section .writeForm input[type="submit"] {
+  background: none;
+  border: none;
+  background-color: #88bef5;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  position: absolute;
+  right: 40%;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.write_section .writeForm input[type="submit"]:hover {
+  background-color: #43dde6;
+}
+
+.write_section .writeForm .appErr {
+  color: red;
+  display: block;
+  margin-top: -15px;
+  margin-left: 15%;
+}
+
+@media screen and (max-width: 767px) {
+  .write_section .writeForm input[type="submit"] {
+    position: absolute;
+    right: 20%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .write_section .imgWrite {
+    margin-top: 40px;
+  }
+  .write_section .imgWrite img {
+    height: 40vh;
+    border-radius: 10px;
+  }
+  .write_section .writeForm .writeFormGroup {
+    margin-left: 7%;
+  }
+  .write_section .writeForm .writeFormGroup .writeInp {
+    width: 240px;
+  }
+  .write_section .writeForm input[type="submit"] {
+    position: absolute;
+    right: 10%;
+  }
+  .write_section .writeForm .appErr {
+    position: absolute;
+    left: -10px;
+  }
+}
+/*# sourceMappingURL=write.css.map */

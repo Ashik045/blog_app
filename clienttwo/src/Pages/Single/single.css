@@ -1,0 +1,26 @@
+.single {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 25%;
+      grid-template-columns: 70% 25%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 20px;
+  margin-top: 50px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .single {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+/*# sourceMappingURL=single.css.map */

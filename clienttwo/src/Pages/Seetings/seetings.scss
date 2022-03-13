@@ -1,0 +1,134 @@
+.settings {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  justify-content: center;
+  margin-top: 110px;
+
+  .seeting_left {
+    margin-bottom: 50px;
+    .seetingUpDel {
+      display: flex;
+      justify-content: space-between;
+
+      .seetingUp {
+        font-size: 25px;
+        font-weight: 700;
+        color: rgb(155, 151, 151);
+      }
+
+      .seetingDel {
+        color: rgb(247, 63, 63);
+        cursor: pointer;
+        font-weight: 500;
+        margin-right: 8%;
+        margin-top: 6px;
+        font-size: 18px;
+        transition: all 0.2s ease;
+      }
+      .seetingDel:hover {
+        color: red;
+        cursor: pointer;
+        transform: scale(1.07);
+      }
+    }
+
+    .seeting_form {
+      width: 60%;
+
+      .error {
+        width: 80%;
+      }
+
+      .seeting_pp {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        .imgWrites {
+        img {
+          height: 200px;
+          width: 250px;
+          border-radius: 10px;
+          object-fit: contain;
+        }
+      }
+
+      .userProPic {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
+      }
+
+        .upPP {
+          margin-top: 15px;
+          margin-left: 10%;
+          margin-bottom: 15px;
+          cursor: pointer;
+        }
+      }
+
+      input[type="submit"] {
+        margin-top: 10px;
+        margin-left: 60%;
+        background-color: #88bef5;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 22px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #35bdd8;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .settings {
+    display: grid;
+    grid-template-columns: 100%;
+
+    .seeting_left {
+      .seetingUpDel {
+        display: grid;
+        grid-template-columns: auto;
+      }
+
+      .seeting_form {
+        width: 90%;
+
+        // .error {
+        //   // width: 80%;
+        // }
+        .inputss {
+          width: 80%;
+        }
+
+        input[type="submit"] {
+          margin-left: 60%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .settings {
+
+    .seeting_left {
+
+      .seeting_form {
+        width: 100%;
+
+        .error {
+          width: 100%;
+        }
+
+        input[type="submit"] {
+          margin-left: 50%;
+        }
+      }
+    }
+  }
+}

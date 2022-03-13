@@ -1,0 +1,188 @@
+@mixin menuStyle {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  padding: 10px 10px;
+  font-weight: 400;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+@mixin menuStyleHover {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@mixin reg-button {
+  background: none;
+  border: 2px solid black;
+  color: black;
+  padding: 5px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+
+@mixin reg-button-hover {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background-color: #f6fcfd;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.2s ease;
+
+  .nav_brand {
+    margin-left: 5%;
+    margin-top: 8px;
+    h5 {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 23px;
+    }
+  }
+
+  .nav_menu {
+    a {
+      @include menuStyle();
+    }
+
+    a:hover {
+      @include menuStyleHover();
+    }
+  }
+
+  .nav_reg {
+    margin-right: 5%;
+
+    .profilePic {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+      object-fit: cover;
+    }
+
+    button {
+      @include reg-button();
+    }
+
+    button:hover {
+      @include reg-button-hover();
+    }
+  }
+
+  .res_navbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    .nav_menu {
+      display: none;
+    }
+
+    .nav_reg {
+      margin-left: auto;
+    }
+
+    .res_navbar {
+      display: block;
+      margin-right: 5%;
+      position: relative;
+
+      .res_nav_menu {
+        position: absolute;
+        top: 50px;
+        right: -80px;
+        background-color: #959993;
+        width: 300px;
+        padding: 20px 5px;
+        -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          both;
+        animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+        a {
+          display: block;
+          @include menuStyle();
+        }
+
+        a:hover {
+          @include menuStyleHover();
+        }
+
+        .res_nav_reg {
+          display: none;
+
+          button {
+            @include reg-button();
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+
+          button:hover {
+            @include reg-button-hover();
+          }
+        }
+      }
+      @-webkit-keyframes slide-left {
+        0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+        }
+      }
+      @keyframes slide-left {
+        0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 650px) {
+  .navbar {
+    .nav_reg {
+      margin-right: 3%;
+      button {
+        display: none;
+      }
+
+      .profilePic {
+        height: 35px;
+        width: 35px;
+      }
+    }
+
+    .res_navbar {
+      .res_nav_menu {
+        margin-right: -25px;
+        text-align: center;
+        .res_nav_reg {
+          display: block;
+        }
+      }
+    }
+  }
+}

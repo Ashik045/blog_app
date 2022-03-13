@@ -1,0 +1,82 @@
+.loginForm {
+  background-color: #fcefee;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin-top: 70px;
+
+  img {
+    position: absolute;
+    top: -90px;
+    right: 7%;
+    width: 500px;
+    height: 500px;
+  }
+
+  .body_form {
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    padding: 20px;
+
+    .fform {
+      h3 {
+        margin: 15px 0 40px;
+        text-align: center;
+        font-weight: 700;
+        color: #fc5185;
+        font-size: 29px;
+      }
+
+      .error {
+        color: red;
+        margin-top: -5px;
+      }
+
+      input[type="submit"] {
+        margin-top: 30px;
+        background-color: #88bef5;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 22px;
+        font-weight: 600;
+        cursor: pointer;
+        display: block;
+      }
+
+      input[type="submit"]:hover {
+        transition: 0.2s;
+        background-color: #35bdd8;
+      }
+
+      input[type="submit"]:disabled {
+        cursor: not-allowed;
+        background-color: #5cabbb;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .loginForm {
+    .body_form {
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .loginForm {
+    .body_form {
+      width: 300px;
+      height: 400px;
+    }
+  }
+}
