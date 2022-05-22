@@ -26,7 +26,7 @@ const Header = () => (
                     disableOnInteraction: false,
                 }}
                 loop
-                style={{ height: '500px', width: '100%' }}
+                style={{ height: '600px', width: '100%' }}
             >
                 <SwiperSlide>
                     <img src={One} alt="ss" />

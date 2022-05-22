@@ -6,6 +6,7 @@ import HomePage from './component/HomePage/HomePage';
 import Navbar from './component/Navbar/Navbar';
 import { Context } from './Context/Context';
 import Login from './Pages/Login/Login';
+import MyPosts from './Pages/MyPosts/MyPosts';
 import Seetings from './Pages/Seetings/Seetings';
 import Signup from './Pages/Signup/Signup';
 import SinglePost from './Pages/SinglePost/SinglePost';
@@ -24,11 +25,13 @@ function App() {
 
                 <Route path="/login" element={user ? <HomePage /> : <Login />} />
 
-                <Route path="/write" element={user ? <Write /> : <Signup />} />
+                <Route path="/write" element={user ? <Write /> : <Login />} />
 
-                <Route path="/seetings" element={user ? <Seetings /> : <Signup />} />
+                <Route path="/seetings" element={user ? <Seetings /> : <Login />} />
 
                 <Route path="/post/:postId" element={<SinglePost />} />
+
+                <Route path="/users" element={<MyPosts />} />
             </Routes>
         </BrowserRouter>
     );

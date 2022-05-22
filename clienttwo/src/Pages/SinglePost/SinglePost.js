@@ -5,6 +5,7 @@ import { BiEdit, BiTrash } from 'react-icons/bi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import postt from '../../Image/no-image-available-icon-6.png';
+import loader from '../../Image/Rolling-1s-24px.png';
 import './singlePost.css';
 
 const SinglePost = () => {
@@ -106,7 +107,7 @@ const SinglePost = () => {
             <div className="post_text">
                 <p>
                     Author:{' '}
-                    <Link to={`/?user=${singlPost.username}`} className="authorName">
+                    <Link to={`/users/?user=${singlPost.username}`} className="authorName">
                         <b>{singlPost.username}</b>
                     </Link>{' '}
                     <i className="text-muted">
@@ -132,10 +133,27 @@ const SinglePost = () => {
                     <button
                         type="submit"
                         onClick={handleUpdate}
-                        style={{ cursor: loading ? 'not-allowed' : 'pointer' }}
+                        style={{
+                            cursor: loading ? 'not-allowed' : 'pointer',
+                            position: 'relative',
+                        }}
                         className="update_post"
                     >
-                        Update Post
+                        {loading ? (
+                            <img
+                                src={loader}
+                                alt="loading.."
+                                style={{
+                                    position: 'absolute',
+                                    left: '40%',
+                                    top: '1%',
+                                    height: '25px',
+                                    width: '25px',
+                                }}
+                            />
+                        ) : (
+                            'Update Post'
+                        )}
                     </button>
                 )}
             </div>

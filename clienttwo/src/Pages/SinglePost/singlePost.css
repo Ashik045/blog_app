@@ -74,12 +74,8 @@
 
 .singlePost .post_text .authorName {
   color: black;
-  text-decoration: none;
   font-size: 20px;
   font-weight: 600;
-}
-
-.singlePost .post_text .authorName:hover {
   text-decoration: underline;
 }
 
@@ -103,7 +99,8 @@
   background: none;
   border: none;
   background-color: #88bef5;
-  padding: 10px 15px;
+  height: 40px;
+  width: 130px;
   font-weight: 600;
   border-radius: 5px;
   margin-left: 80%;
@@ -125,11 +122,22 @@
 }
 
 @media screen and (max-width: 576px) {
+  .singlePost .title_updel h3 {
+    margin: 15px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: left;
+    padding-right: 10px;
+  }
   .singlePost .title_updel .post_title_inp {
     width: 240px;
   }
+  .singlePost .post_text .authorName {
+    font-size: 18px;
+    font-weight: 500;
+  }
   .singlePost .post_text .update_post {
-    margin-left: 50%;
+    margin-left: 47%;
   }
 }
 /*# sourceMappingURL=singlePost.css.map */

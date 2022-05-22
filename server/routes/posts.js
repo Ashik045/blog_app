@@ -8,6 +8,7 @@ const {
     delPost,
     getPost,
     getAllPost,
+    allPostOfUser,
 } = require('../controller/postController');
 
 const router = express.Router();
@@ -26,5 +27,8 @@ router.get('/:id', getPost);
 
 // get all post
 router.get('/', getAllPost);
+
+// get all post of a user
+router.get('/allpost/', allPostOfUser);
 
 module.exports = router;

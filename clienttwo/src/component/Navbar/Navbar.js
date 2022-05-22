@@ -35,18 +35,23 @@ const Navbar = () => {
             </div>
 
             <div className="nav_menu">
-                <a href="#home">
+                <a href="#">
                     <NavLink to="/">Home</NavLink>
                 </a>
-                <a href="#about">
+                <a href="#">
                     <NavLink to="/">About</NavLink>
                 </a>
                 <a href="">
                     <NavLink to="/seetings">User</NavLink>
                 </a>
-                <a href="#write">
+                <a href="#">
                     <NavLink to="/write">Write</NavLink>
                 </a>
+                {user && (
+                    <a href="#">
+                        <NavLink to={`users/?user=${user.username}`}>My Posts</NavLink>
+                    </a>
+                )}
             </div>
 
             <div className="nav_reg">
@@ -81,7 +86,7 @@ const Navbar = () => {
                             <NavLink to="/">Home</NavLink>
                         </a>
                         <a onClick={() => setToggler(false)} href="">
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/">About</NavLink>
                         </a>
                         <a onClick={() => setToggler(false)} href="">
                             <NavLink to="/seetings">User</NavLink>
@@ -89,6 +94,11 @@ const Navbar = () => {
                         <a onClick={() => setToggler(false)} href="#write">
                             <NavLink to="/write">Write</NavLink>
                         </a>
+                        {user && (
+                            <a href="#" onClick={() => setToggler(false)}>
+                                <NavLink to={`users/?user=${user.username}`}>My Posts</NavLink>
+                            </a>
+                        )}
 
                         <div className="res_nav_reg">
                             {user ? (

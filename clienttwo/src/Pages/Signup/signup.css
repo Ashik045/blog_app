@@ -40,18 +40,19 @@
   font-size: 29px;
 }
 
-.signUpForm .signUpForm_main .body_form .fform input[type="submit"] {
+.signUpForm .signUpForm_main .body_form .fform .submit_btn {
   margin-top: 20px;
   background-color: #88bef5;
   border: none;
   border-radius: 5px;
-  padding: 8px 22px;
+  height: 40px;
+  width: 100px;
   font-weight: 600;
   cursor: pointer;
   display: block;
 }
 
-.signUpForm .signUpForm_main .body_form .fform input[type="submit"]:hover {
+.signUpForm .signUpForm_main .body_form .fform .submit_btn:hover {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: #35bdd8;

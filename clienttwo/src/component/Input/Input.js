@@ -13,7 +13,7 @@ const Input = (inpDetails) => {
     };
     return (
         <div className="inp_div">
-            <label className="signLeb">{inpDetails.label}</label>
+            <label className="signLeb">{label}</label>
             <input
                 className="signInp"
                 {...inputs}

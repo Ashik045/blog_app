@@ -24,7 +24,11 @@ const Sidebar = () => {
             {user && (
                 <div className="sidebar">
                     <h4>about me</h4>
-                    {user ? <img src={user.profilepic} alt="" /> : <img src={profile} alt="" />}
+                    {user.profilepic ? (
+                        <img src={user.profilepic} alt="" />
+                    ) : (
+                        <img src={profile} alt="" />
+                    )}
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi at
                         consequatur illo libero saepe distinctio.

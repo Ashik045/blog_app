@@ -6,9 +6,14 @@
     "prettier",
     "plugin:jsx-a11y/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "requireConfigFile": false,
+    // add this line
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
   },
   "env": {
     "browser": true,
@@ -25,6 +30,8 @@
     "linebreak-style": 0,
     "react/prop-types": 0,
     "jsx-a11y/click-events-have-key-events": 0,
+    "react/jsx-no-useless-fragment": 0,
+    "react/function-component-definition": 0,
     "react/jsx-filename-extension": [
       1,
       {

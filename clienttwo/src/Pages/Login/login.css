@@ -42,24 +42,25 @@
   margin-top: -5px;
 }
 
-.loginForm .body_form .fform input[type="submit"] {
+.loginForm .body_form .fform .submit_btn {
   margin-top: 30px;
   background-color: #88bef5;
   border: none;
   border-radius: 5px;
-  padding: 8px 22px;
+  height: 40px;
+  width: 100px;
   font-weight: 600;
   cursor: pointer;
   display: block;
 }
 
-.loginForm .body_form .fform input[type="submit"]:hover {
+.loginForm .body_form .fform .submit_btn:hover {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: #35bdd8;
 }
 
-.loginForm .body_form .fform input[type="submit"]:disabled {
+.loginForm .body_form .fform .submit_btn:disabled {
   cursor: not-allowed;
   background-color: #5cabbb;
 }

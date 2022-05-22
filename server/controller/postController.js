@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const Post = require('../models/post');
 
 // create post
@@ -29,7 +30,7 @@ const updPost = async (req, res) => {
                     {
                         $set: req.body,
                     },
-                    { new: true }
+                    { new: true },
                 );
 
                 res.status(200).json({
@@ -91,7 +92,7 @@ const getPost = async (req, res) => {
         });
     } catch (err) {
         res.status(500).json({
-            error: 'can not find user!',
+            error: 'Can not find user!!',
         });
     }
 };
@@ -111,7 +112,7 @@ const getAllPost = async (req, res) => {
                 },
             });
         } else {
-            posts = await Post.find();
+            posts = await Post.find().sort({ createdAt: -1 });
         }
 
         res.status(200).json({
@@ -119,7 +120,23 @@ const getAllPost = async (req, res) => {
         });
     } catch (err) {
         res.status(500).json({
-            error: 'can not find post',
+            error: 'Can not find post!',
+        });
+    }
+};
+
+// get all posts of a user
+const allPostOfUser = async (req, res) => {
+    const username = req.query.user;
+    try {
+        const posts = await Post.find({ username });
+
+        res.status(200).json({
+            message: posts,
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: 'There was no post!',
         });
     }
 };
@@ -130,4 +147,5 @@ module.exports = {
     delPost,
     getPost,
     getAllPost,
+    allPostOfUser,
 };

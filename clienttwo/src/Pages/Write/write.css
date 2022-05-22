@@ -69,11 +69,11 @@
   font-weight: 500;
 }
 
-.write_section .writeForm input[type="submit"] {
-  background: none;
+.write_section .writeForm .submit_btn {
   border: none;
   background-color: #88bef5;
-  padding: 10px 15px;
+  height: 40px;
+  width: 100px;
   font-weight: 600;
   border-radius: 5px;
   position: absolute;
@@ -82,7 +82,7 @@
   margin-top: 15px;
 }
 
-.write_section .writeForm input[type="submit"]:hover {
+.write_section .writeForm .submit_btn:hover {
   background-color: #43dde6;
 }
 
@@ -94,7 +94,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .write_section .writeForm input[type="submit"] {
+  .write_section .writeForm .submit_btn {
     position: absolute;
     right: 20%;
   }
@@ -114,7 +114,7 @@
   .write_section .writeForm .writeFormGroup .writeInp {
     width: 240px;
   }
-  .write_section .writeForm input[type="submit"] {
+  .write_section .writeForm .submit_btn {
     position: absolute;
     right: 10%;
   }

@@ -81,20 +81,21 @@
   cursor: pointer;
 }
 
-.settings .seeting_left .seeting_form input[type="submit"] {
+.settings .seeting_left .seeting_form .submit_btn {
   margin-top: 10px;
   margin-left: 60%;
   background-color: #88bef5;
   border: none;
   border-radius: 5px;
-  padding: 10px 22px;
+  height: 40px;
+  width: 100px;
   font-weight: 600;
   cursor: pointer;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
-.settings .seeting_left .seeting_form input[type="submit"]:hover {
+.settings .seeting_left .seeting_form .submit_btn:hover {
   background-color: #35bdd8;
 }
 
@@ -117,7 +118,7 @@
   .settings .seeting_left .seeting_form .inputss {
     width: 80%;
   }
-  .settings .seeting_left .seeting_form input[type="submit"] {
+  .settings .seeting_left .seeting_form .submit_btn {
     margin-left: 60%;
   }
 }
@@ -129,7 +130,7 @@
   .settings .seeting_left .seeting_form .error {
     width: 100%;
   }
-  .settings .seeting_left .seeting_form input[type="submit"] {
+  .settings .seeting_left .seeting_form .submit_btn {
     margin-left: 50%;
   }
 }

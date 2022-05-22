@@ -9,7 +9,9 @@ const Post = ({ post }) => {
     const { user } = useContext(Context);
     return (
         <div className="single_post">
-            {post.photo ? <img src={post.photo} alt="noimg" /> : <img src={postImg} alt="" />}
+            <Link to={user ? `/post/${post._id}` : '/login'} className="post_title ">
+                {post.photo ? <img src={post.photo} alt="noimg" /> : <img src={postImg} alt="" />}
+            </Link>
 
             <div className="post_info">
                 <div className="post_cat ">
@@ -26,7 +28,7 @@ const Post = ({ post }) => {
                     </p>
                 </div>
 
-                <Link to={user ? `/post/${post._id}` : '/signup'} className="post_title ">
+                <Link to={user ? `/post/${post._id}` : '/login'} className="post_title">
                     {post.title}
                 </Link>
 

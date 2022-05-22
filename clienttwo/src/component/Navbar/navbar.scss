@@ -2,20 +2,19 @@
   text-decoration: none;
   text-transform: uppercase;
   color: black;
-  padding: 10px 10px;
   font-weight: 400;
   font-size: 17px;
   transition: all 0.3s ease;
 }
 
 @mixin menuStyleHover {
-  font-size: 18px;
   font-weight: 500;
+  color: #0fd687;
 }
 
 @mixin reg-button {
   background: none;
-  border: 2px solid black;
+  border: 1px solid black;
   color: black;
   padding: 5px 16px;
   border-radius: 5px;
@@ -55,6 +54,7 @@
   .nav_menu {
     a {
       @include menuStyle();
+      padding: 10px 7px;
     }
 
     a:hover {
@@ -105,9 +105,9 @@
 
       .res_nav_menu {
         position: absolute;
-        top: 50px;
+        top: 54px;
         right: -80px;
-        background-color: #959993;
+        background-color: #c5e3f6;
         width: 300px;
         padding: 20px 5px;
         -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -117,6 +117,7 @@
         a {
           display: block;
           @include menuStyle();
+          padding: 5px 8px;
         }
 
         a:hover {

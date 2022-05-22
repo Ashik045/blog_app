@@ -1,7 +1,7 @@
 .headers {
   margin-top: 70px;
   padding-bottom: 50px;
-  height: 400px !important;
+  height: 500px !important;
 }
 
 .swiper {
@@ -31,5 +31,11 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 576px) {
+  .headers {
+    height: 480px !important;
+  }
 }
 /*# sourceMappingURL=header.css.map */

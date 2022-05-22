@@ -39,23 +39,25 @@
         margin-top: -5px;
       }
 
-      input[type="submit"] {
+      .submit_btn {
         margin-top: 30px;
         background-color: #88bef5;
         border: none;
         border-radius: 5px;
-        padding: 8px 22px;
+        // padding: 8px 22px;
+        height: 40px;
+        width: 100px;
         font-weight: 600;
         cursor: pointer;
         display: block;
       }
 
-      input[type="submit"]:hover {
+      .submit_btn:hover {
         transition: 0.2s;
         background-color: #35bdd8;
       }
 
-      input[type="submit"]:disabled {
+      .submit_btn:disabled {
         cursor: not-allowed;
         background-color: #5cabbb;
       }

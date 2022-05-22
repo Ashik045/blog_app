@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import Input from '../../component/Input/Input';
 import SideBar from '../../component/Sidebar/Sidebar';
 import { Context } from '../../Context/Context';
+import loader from '../../Image/Rolling-1s-24px.png';
 import './seetings.css';
 
 const Seetings = () => {
@@ -78,6 +79,7 @@ const Seetings = () => {
         });
 
         try {
+            dispatch({ type: 'UPDATE_START' });
             const data = new FormData();
             data.append('file', photo);
             data.append('upload_preset', 'uploads');
@@ -89,7 +91,6 @@ const Seetings = () => {
 
             const { url } = uploadRes.data;
 
-            dispatch({ type: 'UPDATE_START' });
             const updatedUser = {
                 userId: user._id,
                 username: values.username,
@@ -129,7 +130,7 @@ const Seetings = () => {
     };
 
     if (isFetching) {
-        return <p>Loading</p>;
+        return <p style={{ marginTop: '150px', textAlign: 'center' }}>Updating user..</p>;
     }
 
     return (
@@ -175,7 +176,28 @@ const Seetings = () => {
                             Please select a profilepic.
                         </p>
                     )}
-                    <input type="submit" value="Update" />
+                    <button
+                        type="submit"
+                        className="mb-2 submit_btn"
+                        disabled={isFetching}
+                        style={{ position: 'relative' }}
+                    >
+                        {isFetching ? (
+                            <img
+                                src={loader}
+                                alt="loading.."
+                                style={{
+                                    position: 'absolute',
+                                    left: '40%',
+                                    top: '23%',
+                                    height: '25px',
+                                    width: '25px',
+                                }}
+                            />
+                        ) : (
+                            'Log In'
+                        )}
+                    </button>
                     {authErr && (
                         <p style={{ margin: '10px 0px', color: 'red' }} className="error">
                             Can&apos;t update the user!

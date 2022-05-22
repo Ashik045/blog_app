@@ -43,19 +43,19 @@
         margin-top: 50px;
         margin-bottom: 20px;
         .imgWrites {
-        img {
-          height: 200px;
-          width: 250px;
-          border-radius: 10px;
-          object-fit: contain;
+          img {
+            height: 200px;
+            width: 250px;
+            border-radius: 10px;
+            object-fit: contain;
+          }
         }
-      }
 
-      .userProPic {
-        width: 200px;
-        height: 250px;
-        object-fit: cover;
-      }
+        .userProPic {
+          width: 200px;
+          height: 250px;
+          object-fit: cover;
+        }
 
         .upPP {
           margin-top: 15px;
@@ -65,19 +65,20 @@
         }
       }
 
-      input[type="submit"] {
+      .submit_btn {
         margin-top: 10px;
         margin-left: 60%;
         background-color: #88bef5;
         border: none;
         border-radius: 5px;
-        padding: 10px 22px;
+        height: 40px;
+        width: 100px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
       }
 
-      input[type="submit"]:hover {
+      .submit_btn:hover {
         background-color: #35bdd8;
       }
     }
@@ -105,7 +106,7 @@
           width: 80%;
         }
 
-        input[type="submit"] {
+        .submit_btn {
           margin-left: 60%;
         }
       }
@@ -115,9 +116,7 @@
 
 @media screen and (max-width: 576px) {
   .settings {
-
     .seeting_left {
-
       .seeting_form {
         width: 100%;
 
@@ -125,7 +124,7 @@
           width: 100%;
         }
 
-        input[type="submit"] {
+        .submit_btn {
           margin-left: 50%;
         }
       }

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Posts from '../Posts/Posts';
+import SectionHeader from '../SectionHeader/SectionHeader';
 import './mainHome.css';
 
 const MainHome = () => {
@@ -24,6 +25,7 @@ const MainHome = () => {
             <Header />
 
             <div className="main_body container" id="about">
+                <SectionHeader subHeader="Travel Story" header="Best Tourist's Shared Story" />
                 <Posts posts={post} />
             </div>
         </div>

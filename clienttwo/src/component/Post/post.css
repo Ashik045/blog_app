@@ -59,6 +59,11 @@
   text-decoration: none;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .single_post .post_info .post_title:hover {
@@ -78,7 +83,7 @@
 }
 
 .single_post:hover .post_title {
-  color: #482ff7;
+  color: #17b978;
 }
 
 @media screen and (max-width: 576px) {

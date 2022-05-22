@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../component/Input/Input';
 import blob from '../../Image/blob.svg';
+import loader from '../../Image/Rolling-1s-24px.png';
 import './signup.css';
 
 const Signup = () => {
@@ -16,6 +17,7 @@ const Signup = () => {
         repassword: '',
     });
     const [authErr, setAuthErr] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const inputs = [
         {
@@ -69,14 +71,22 @@ const Signup = () => {
         e.preventDefault();
 
         try {
+            setLoading(true);
             await axios.post('/auth/register', {
                 username: values.username,
                 email: values.email,
                 password: values.password,
             });
             nevigate('/login');
+
+            setLoading(false);
         } catch (error) {
             setAuthErr(true);
+            console.log(error);
+            setValues({
+                password: '',
+                repassword: '',
+            });
         }
     };
 
@@ -97,7 +107,28 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                             ))}
-                            <input className="mb-2" type="submit" value="Sign up" />
+                            <button
+                                type="submit"
+                                className="mb-2 submit_btn"
+                                disabled={loading}
+                                style={{ position: 'relative' }}
+                            >
+                                {loading ? (
+                                    <img
+                                        src={loader}
+                                        alt="loading.."
+                                        style={{
+                                            position: 'absolute',
+                                            left: '40%',
+                                            top: '23%',
+                                            height: '25px',
+                                            width: '25px',
+                                        }}
+                                    />
+                                ) : (
+                                    'Sign Up'
+                                )}
+                            </button>
 
                             {authErr && (
                                 <p style={{ margin: '5px 0', color: 'red' }} className="error">

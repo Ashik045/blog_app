@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useEffect, useReducer } from 'react';
 import Reducer from './Reducer';
 

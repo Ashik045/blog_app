@@ -4,6 +4,7 @@ import React, { useContext, useState } from 'react';
 import { BiImageAdd } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
+import loader from '../../Image/Rolling-1s-24px.png';
 import './write.css';
 
 const Write = () => {
@@ -93,20 +94,28 @@ const Write = () => {
                     />
                 </div>
 
-                {/* {loading ? (
-                    <input type="submit" style={{ cursor: loading ? 'not-allowed' : 'pointer'}} value="Publish Post" />
-                ) : ( */}
                 {appErr && (
                     <span className="appErr">
-                        Something went wrong! Make sure you select an image.
+                        Something went wrong! Make sure you fill all the input field.
                     </span>
                 )}
-                <input
-                    type="submit"
-                    style={{ cursor: loading ? 'not-allowed' : 'pointer' }}
-                    value="Publish Post"
-                />
-                {/* )} */}
+                <button type="submit" className="mb-2 submit_btn" disabled={loading}>
+                    {loading ? (
+                        <img
+                            src={loader}
+                            alt="loading.."
+                            style={{
+                                position: 'absolute',
+                                left: '40%',
+                                top: '23%',
+                                height: '25px',
+                                width: '25px',
+                            }}
+                        />
+                    ) : (
+                        'Piblish Post'
+                    )}
+                </button>
             </form>
         </div>
     );

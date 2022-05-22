@@ -1,20 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap");
 .post_sec {
-  margin-top: 180px;
   margin-bottom: 70px;
-}
-
-.post_sec .post_sec_header {
-  margin-bottom: 70px;
-  text-align: center;
-}
-
-.post_sec .post_sec_header h6 {
-  color: yellow;
-}
-
-.post_sec .post_sec_header h1 {
-  font-family: 'Fredoka', sans-serif;
 }
 
 .post_sec .posts {

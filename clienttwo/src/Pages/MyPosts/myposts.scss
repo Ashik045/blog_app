@@ -1,0 +1,21 @@
+.my_posts {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and(max-width: 767px) {
+  .my_posts {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and(max-width: 576px) {
+  .my_posts {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

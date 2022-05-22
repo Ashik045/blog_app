@@ -7,9 +7,6 @@ import MainHome from '../MainHome/MainHome';
 const HomePage = () => (
     <div>
         <MainHome />
-        {/* <Single />
-        <Write />
-        <Seetings /> */}
     </div>
 );
 

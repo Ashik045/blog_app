@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,UAAU,EAAE,KAAK;EACjB,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,MAAM;CAQnB;;AAXD,AAIE,gBAJc,CAId,EAAE,CAAC;EACD,KAAK,EAAE,OAAO;CACf;;AANH,AAQE,gBARc,CAQd,EAAE,CAAC;EACD,WAAW,EAAE,qBAAqB;CACnC",
+    "sources": [
+        "sectionheader.scss"
+    ],
+    "names": [],
+    "file": "sectionheader.css"
+}

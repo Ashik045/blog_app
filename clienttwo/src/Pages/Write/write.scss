@@ -51,11 +51,11 @@
       }
     }
 
-    input[type="submit"] {
-      background: none;
+    .submit_btn {
       border: none;
       background-color: #88bef5;
-      padding: 10px 15px;
+      height: 40px;
+      width: 100px;
       font-weight: 600;
       border-radius: 5px;
       position: absolute;
@@ -63,11 +63,11 @@
       cursor: pointer;
       margin-top: 15px;
     }
-  
-    input[type="submit"]:hover {
+
+    .submit_btn:hover {
       background-color: #43dde6;
     }
-  
+
     .appErr {
       color: red;
       display: block;
@@ -80,12 +80,12 @@
 @media screen and (max-width: 767px) {
   .write_section {
     .writeForm {
-    input[type="submit"] {
-      position: absolute;
-      right: 20%;
+      .submit_btn {
+        position: absolute;
+        right: 20%;
+      }
     }
   }
-}
 }
 
 @media screen and (max-width: 576px) {
@@ -106,11 +106,11 @@
         }
       }
 
-      input[type="submit"] {
+      .submit_btn {
         position: absolute;
         right: 10%;
       }
-  
+
       .appErr {
         position: absolute;
         left: -10px;
