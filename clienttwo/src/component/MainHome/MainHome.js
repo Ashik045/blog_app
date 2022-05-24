@@ -11,6 +11,7 @@ const MainHome = () => {
     const [post, setPost] = useState([]);
     const { search } = useLocation();
 
+    // fetch data
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get(`/posts${search}`);
