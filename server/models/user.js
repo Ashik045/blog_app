@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// create user schema
 const UserSchema = new mongoose.Schema(
     {
         username: {
@@ -21,7 +22,7 @@ const UserSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-    },
+    }
 );
 
 // create user model

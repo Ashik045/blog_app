@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
 const mongoose = require('mongoose');
 
+// create post schema
 const PostSchema = mongoose.Schema(
     {
         title: {

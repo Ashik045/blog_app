@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // external import
 const express = require('express');
 const dotenv = require('dotenv');
@@ -35,7 +36,7 @@ mongoose
         console.log(err);
     });
 
-// routing
+// routing sec
 app.use('/api/auth', auth);
 app.use('/api/users', user);
 app.use('/api/posts', post);
