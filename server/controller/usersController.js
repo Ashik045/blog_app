@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable no-underscore-dangle */
 // external import
 const bcrypt = require('bcrypt');
 
@@ -18,7 +20,7 @@ const usersControllerUpd = async (req, res) => {
                 {
                     $set: req.body,
                 },
-                { new: true },
+                { new: true }
             );
             res.status(200).json({
                 message: ress,
@@ -68,7 +70,7 @@ const usersControllerDel = async (req, res) => {
     }
 };
 
-// get a user
+// get one user
 const getUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
