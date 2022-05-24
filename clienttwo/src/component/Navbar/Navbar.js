@@ -74,6 +74,7 @@ const Navbar = () => {
                 )}
             </div>
 
+            {/* for responsive device */}
             <div className="res_navbar">
                 {toggler ? (
                     <BiX size={29} onClick={() => setToggler(false)} />

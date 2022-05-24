@@ -16,6 +16,7 @@ export const LogOut = () => ({
     type: 'LOGOUT',
 });
 
+// updated user
 export const updateStart = (userCredentials) => ({
     type: 'UPDATE_START',
 });
