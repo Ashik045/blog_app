@@ -73,6 +73,8 @@
 
     .textDesc {
       font-family: "Varela Round", sans-serif;
+      line-height: 35px;
+      color: rgb(85, 83, 83);
     }
 
     .textDesc_inp {
@@ -85,6 +87,7 @@
       margin-left: 15px;
       font-size: 30px;
       font-weight: 600;
+      color: black;
     }
 
     .update_post {
@@ -142,6 +145,10 @@
       }
       .update_post {
         margin-left: 47%;
+      }
+
+      .textDesc {
+        line-height: 30px;
       }
     }
   }

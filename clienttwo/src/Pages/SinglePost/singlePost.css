@@ -81,6 +81,8 @@
 
 .singlePost .post_text .textDesc {
   font-family: "Varela Round", sans-serif;
+  line-height: 35px;
+  color: #555353;
 }
 
 .singlePost .post_text .textDesc_inp {
@@ -93,6 +95,7 @@
   margin-left: 15px;
   font-size: 30px;
   font-weight: 600;
+  color: black;
 }
 
 .singlePost .post_text .update_post {
@@ -138,6 +141,9 @@
   }
   .singlePost .post_text .update_post {
     margin-left: 47%;
+  }
+  .singlePost .post_text .textDesc {
+    line-height: 30px;
   }
 }
 /*# sourceMappingURL=singlePost.css.map */

@@ -89,8 +89,6 @@ const Signup = () => {
                 password: values.password,
                 profilepic: url,
             };
-            console.log(url);
-            console.log(profilePhoto);
 
             try {
                 await axios.post('/auth/register', newUser);
