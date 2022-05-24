@@ -58,6 +58,7 @@ const Login = () => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
+    // submit func
     const handleSub = async (e) => {
         e.preventDefault();
 
@@ -98,12 +99,6 @@ const Login = () => {
                                 onChange={handleChange}
                             />
                         ))}
-                        {/* <input
-                            className="mb-2"
-                            type="submit"
-                            value={isFetching ? 'a' : 'Log In'}
-                            disabled={isFetching}
-                        /> */}
                         <button
                             type="submit"
                             className="mb-2 submit_btn"

@@ -54,6 +54,7 @@ const Navbar = () => {
                 )}
             </div>
 
+            {/* nav reg sec */}
             <div className="nav_reg">
                 {user ? (
                     <>
