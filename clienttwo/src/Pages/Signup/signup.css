@@ -55,7 +55,7 @@
 .signUpForm .signUpForm_main .body_form .fform .submit_btn:hover {
   -webkit-transition: 0.2s;
   transition: 0.2s;
-  background-color: #35bdd8;
+  background-color: #43dde6;
 }
 
 @media screen and (max-width: 576px) {
@@ -64,6 +64,10 @@
   }
   .signUpForm .signUpForm_main .body_form {
     width: 90%;
+  }
+  .signUpForm .signUpForm_main .body_form .fform .file_inp {
+    cursor: pointer;
+    width: 100% !important;
   }
 }
 /*# sourceMappingURL=signup.css.map */

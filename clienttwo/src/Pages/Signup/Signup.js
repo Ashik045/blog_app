@@ -1,6 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,6 +14,7 @@ const Signup = () => {
         password: '',
         repassword: '',
     });
+    const [profilePhoto, setProfilePhoto] = useState('');
     const [authErr, setAuthErr] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -72,15 +71,43 @@ const Signup = () => {
 
         try {
             setLoading(true);
-            await axios.post('/auth/register', {
+
+            const data = new FormData();
+            data.append('file', profilePhoto);
+            data.append('upload_preset', 'uploads');
+
+            const uploadRes = await axios.post(
+                'https://api.cloudinary.com/v1_1/dqctmbhde/image/upload',
+                data
+            );
+
+            const { url } = uploadRes.data;
+            const newUser = {
                 username: values.username,
                 email: values.email,
                 password: values.password,
-            });
-            nevigate('/login');
+                profilepic: url,
+            };
+            console.log(url);
+            console.log(profilePhoto);
 
-            setLoading(false);
+            try {
+                await axios.post('/auth/register', newUser);
+                nevigate('/login');
+
+                setLoading(false);
+            } catch (error) {
+                setLoading(false);
+
+                setAuthErr(true);
+                setValues({
+                    password: '',
+                    repassword: '',
+                });
+            }
         } catch (error) {
+            setLoading(false);
+
             setAuthErr(true);
             console.log(error);
             setValues({
@@ -107,6 +134,12 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                             ))}
+
+                            <input
+                                type="file"
+                                onChange={(e) => setProfilePhoto(e.target.files[0])}
+                                className="mt-2 file_inp"
+                            />
                             <button
                                 type="submit"
                                 className="mb-2 submit_btn"

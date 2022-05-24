@@ -27,34 +27,6 @@
   padding: 10px;
 }
 
-.sidebar .category h5 {
-  text-align: center;
-  padding: 5px;
-  border-top: 2px solid #333333;
-  border-bottom: 2px solid #333333;
-}
-
-.sidebar .category ul {
-  list-style: none;
-  text-align: center;
-}
-
-.sidebar .category ul li {
-  display: inline-block;
-  width: 50%;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.sidebar .category ul .link_cat {
-  color: black;
-  text-decoration: none;
-}
-
-.sidebar .category ul li:hover {
-  text-decoration: underline;
-}
-
 @media screen and (max-width: 767px) {
   .sidebar img {
     margin-left: 0%;

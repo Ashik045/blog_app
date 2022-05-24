@@ -49,7 +49,7 @@
 
         .submit_btn:hover {
           transition: 0.2s;
-          background-color: #35bdd8;
+          background-color: #43dde6;
         }
       }
     }
@@ -63,6 +63,13 @@
 
       .body_form {
         width: 90%;
+
+        .fform {
+          .file_inp {
+            cursor: pointer;
+            width: 100% !important;
+          }
+        }
       }
     }
   }

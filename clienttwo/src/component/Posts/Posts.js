@@ -4,6 +4,12 @@ import Post from '../Post/Post';
 import './posts.css';
 
 const Posts = ({ posts }) => (
+    // const [page, setPage] = useState(1);
+
+    // const fetchMore = () => {
+    //     setPage(page + 9);
+    // };
+
     <div className="post_sec">
         <div className="posts">
             {posts.map((p) => (
@@ -12,5 +18,4 @@ const Posts = ({ posts }) => (
         </div>
     </div>
 );
-
 export default Posts;

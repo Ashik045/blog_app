@@ -35,22 +35,22 @@ const Navbar = () => {
             </div>
 
             <div className="nav_menu">
-                <a href="#">
-                    <NavLink to="/">Home</NavLink>
-                </a>
-                <a href="#">
-                    <NavLink to="/">About</NavLink>
-                </a>
-                <a href="">
-                    <NavLink to="/seetings">User</NavLink>
-                </a>
-                <a href="#">
-                    <NavLink to="/write">Write</NavLink>
-                </a>
+                <NavLink to="/">
+                    <a href="">Home</a>
+                </NavLink>
+                <NavLink to="/">
+                    <a href="">About</a>
+                </NavLink>
+                <NavLink to="/seetings">
+                    <a href="">User</a>
+                </NavLink>
+                <NavLink to="/write">
+                    <a href="">Write</a>
+                </NavLink>
                 {user && (
-                    <a href="#">
-                        <NavLink to={`users/?user=${user.username}`}>My Posts</NavLink>
-                    </a>
+                    <NavLink to={`users/?user=${user.username}`}>
+                        <a href="">My Posts</a>
+                    </NavLink>
                 )}
             </div>
 
@@ -82,22 +82,32 @@ const Navbar = () => {
                 )}
                 {toggler && (
                     <div className="res_nav_menu">
-                        <a onClick={() => setToggler(false)} href="#home">
-                            <NavLink to="/">Home</NavLink>
-                        </a>
-                        <a onClick={() => setToggler(false)} href="">
-                            <NavLink to="/">About</NavLink>
-                        </a>
-                        <a onClick={() => setToggler(false)} href="">
-                            <NavLink to="/seetings">User</NavLink>
-                        </a>
-                        <a onClick={() => setToggler(false)} href="#write">
-                            <NavLink to="/write">Write</NavLink>
-                        </a>
-                        {user && (
-                            <a href="#" onClick={() => setToggler(false)}>
-                                <NavLink to={`users/?user=${user.username}`}>My Posts</NavLink>
+                        <NavLink to="/">
+                            <a onClick={() => setToggler(false)} href="">
+                                Home
                             </a>
+                        </NavLink>
+                        <NavLink to="/">
+                            <a onClick={() => setToggler(false)} href="">
+                                About
+                            </a>
+                        </NavLink>
+                        <NavLink to="/seetings">
+                            <a onClick={() => setToggler(false)} href="">
+                                User
+                            </a>
+                        </NavLink>
+                        <NavLink to="/write">
+                            <a onClick={() => setToggler(false)} href="">
+                                Write
+                            </a>
+                        </NavLink>
+                        {user && (
+                            <NavLink to={`users/?user=${user.username}`}>
+                                <a href="#" onClick={() => setToggler(false)}>
+                                    My Posts
+                                </a>
+                            </NavLink>
                         )}
 
                         <div className="res_nav_reg">

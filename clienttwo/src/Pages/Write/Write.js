@@ -113,7 +113,7 @@ const Write = () => {
                             }}
                         />
                     ) : (
-                        'Piblish Post'
+                        'Publish Post'
                     )}
                 </button>
             </form>

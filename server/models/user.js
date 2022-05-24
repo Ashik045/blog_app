@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-    }
+    },
 );
 
 // create user model

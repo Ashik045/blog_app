@@ -13,6 +13,7 @@ const regController = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hashedPass,
+            profilepic: req.body.profilepic,
         });
         newUser.save();
 
