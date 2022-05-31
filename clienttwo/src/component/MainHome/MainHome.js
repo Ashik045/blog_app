@@ -16,7 +16,7 @@ const MainHome = () => {
         const fetchData = async () => {
             setLoading(true);
 
-            const res = await axios.get(`/posts`);
+            const res = await axios.get(`https://journal11.herokuapp.com/api/posts`);
             setPost(res.data.message);
             setLoading(false);
         };

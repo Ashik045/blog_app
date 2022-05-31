@@ -24,7 +24,7 @@ const SinglePost = () => {
         const fetchData = async () => {
             setLoading(true);
 
-            const res = await axios.get(`/posts/${path}`);
+            const res = await axios.get(`https://journal11.herokuapp.com/api/posts/${path}`);
             setSinglePost(res.data.message);
             setTitle(res.data.message.title);
             setDesc(res.data.message.desc);
@@ -36,7 +36,7 @@ const SinglePost = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`/posts/${singlPost._id}`, {
+            await axios.put(`https://journal11.herokuapp.com/api/posts/${singlPost._id}`, {
                 username: user.username,
                 title,
                 desc,
@@ -50,7 +50,7 @@ const SinglePost = () => {
 
     const deletePost = async () => {
         try {
-            await axios.delete(`/posts/${singlPost._id}`, {
+            await axios.delete(`https://journal11.herokuapp.com/api/posts/${singlPost._id}`, {
                 data: { username: user.username },
             });
             nevigate('/');

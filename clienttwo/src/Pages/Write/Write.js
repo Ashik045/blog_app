@@ -40,7 +40,7 @@ const Write = () => {
             };
 
             try {
-                const res = await axios.post('/posts', newPost);
+                const res = await axios.post('https://journal11.herokuapp.com/api/posts', newPost);
                 // eslint-disable-next-line no-underscore-dangle
                 nevigate(`/post/${res.data.message._id}`);
             } catch (error) {

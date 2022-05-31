@@ -91,7 +91,7 @@ const Signup = () => {
             };
 
             try {
-                await axios.post('/auth/register', newUser);
+                await axios.post('https://journal11.herokuapp.com/api/auth/register', newUser);
                 nevigate('/login');
 
                 setLoading(false);

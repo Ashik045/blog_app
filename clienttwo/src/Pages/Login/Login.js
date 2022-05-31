@@ -64,7 +64,7 @@ const Login = () => {
 
         try {
             dispatch({ type: 'LOGIN_START' });
-            const res = await axios.post('/auth/login', {
+            const res = await axios.post('https://journal11.herokuapp.com/api/auth/login', {
                 email: values.email,
                 password: values.password,
             });
