@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
 // external import
 const express = require('express');
@@ -10,7 +12,6 @@ const path = require('path');
 const auth = require('./routes/auth');
 const user = require('./routes/users');
 const post = require('./routes/posts');
-const categorys = require('./routes/categorys');
 
 const app = express();
 
@@ -36,11 +37,22 @@ mongoose
         console.log(err);
     });
 
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+//     next();
+// });
+
+// main route
+app.get('/api', (req, res) => {
+    res.status(200).json({
+        message: 'server running.',
+    });
+});
 // routing sec
 app.use('/api/auth', auth);
 app.use('/api/users', user);
 app.use('/api/posts', post);
-app.use('/api/categories', categorys);
 
 // not found handler
 app.use((req, res, next) => {
@@ -48,7 +60,8 @@ app.use((req, res, next) => {
         error: 'requested url not found!',
     });
 });
-// error handling
+
+// default error handling
 app.use((err, req, res, next) => {
     res.status(500).json({
         error: err,
@@ -56,6 +69,6 @@ app.use((err, req, res, next) => {
 });
 
 // application connect port
-app.listen(process.env.APP_PORT || 4000, () => {
-    console.log(`listening on ${process.env.APP_PORT}`);
+app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
+    console.log(`listening on ${process.env.PORT}`);
 });

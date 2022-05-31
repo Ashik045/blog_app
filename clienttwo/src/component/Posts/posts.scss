@@ -12,6 +12,12 @@
     align-items: center;
   }
 }
+
+.loader_imgg {
+  margin-left: 48%;
+  margin-top: 0px !important;
+}
+
 @media screen and (max-width: 767px) {
   .post_sec {
     .posts {
@@ -26,5 +32,9 @@
       display: grid;
       grid-template-columns: 90%;
     }
+  }
+
+  .loader_imgg {
+    margin-left: 39%;
   }
 }

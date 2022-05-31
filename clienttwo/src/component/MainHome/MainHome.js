@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import loader from '../../Image/Spinner-1s-71px.png';
 import Header from '../Header/Header';
 import Posts from '../Posts/Posts';
 import SectionHeader from '../SectionHeader/SectionHeader';
@@ -9,17 +9,20 @@ import './mainHome.css';
 
 const MainHome = () => {
     const [post, setPost] = useState([]);
-    const { search } = useLocation();
+    const [loading, setLoading] = useState(false);
 
     // fetch data
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`/posts${search}`);
+            setLoading(true);
+
+            const res = await axios.get(`/posts`);
             setPost(res.data.message);
+            setLoading(false);
         };
 
         fetchData();
-    }, [search]);
+    }, []);
 
     return (
         <div className="main_home">
@@ -27,7 +30,7 @@ const MainHome = () => {
 
             <div className="main_body container" id="about">
                 <SectionHeader subHeader="Travel Story" header="Best Tourist's Shared Story" />
-                <Posts posts={post} />
+                <Posts posts={post} loading={loading} />
             </div>
         </div>
     );

@@ -58,5 +58,5 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.6.2"
   },
-  "proxy": "http://localhost:4000/api/"
+  "proxy": "https://journal11.herokuapp.com/api"
 }

@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "SET NODE_ENV=development & nodemon index"
+    "start": "SET NODE_ENV= development & nodemon index.js",
+    "dev": "node index.js"
   },
   "devDependencies": {
     "eslint": "7.2.0",
@@ -20,6 +21,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "http-errors": "^1.8.1",
+    "http-proxy-middleware": "^2.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.7",
     "multer": "^1.4.3",

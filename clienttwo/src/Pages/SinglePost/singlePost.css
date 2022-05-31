@@ -114,6 +114,11 @@
   background-color: #43dde6;
 }
 
+.loader_img {
+  margin-left: 48%;
+  margin-top: 150px;
+}
+
 @media screen and (max-width: 767px) {
   .singlePost img {
     width: 100%;
@@ -144,6 +149,9 @@
   }
   .singlePost .post_text .textDesc {
     line-height: 30px;
+  }
+  .loader_img {
+    margin-left: 39%;
   }
 }
 /*# sourceMappingURL=singlePost.css.map */

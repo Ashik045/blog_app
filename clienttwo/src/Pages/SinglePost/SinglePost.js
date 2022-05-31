@@ -5,7 +5,7 @@ import { BiEdit, BiTrash } from 'react-icons/bi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import postt from '../../Image/no-image-available-icon-6.png';
-import loader from '../../Image/Rolling-1s-24px.png';
+import loader1 from '../../Image/Spinner-1s-71px.png';
 import './singlePost.css';
 
 const SinglePost = () => {
@@ -22,10 +22,13 @@ const SinglePost = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
+
             const res = await axios.get(`/posts/${path}`);
             setSinglePost(res.data.message);
             setTitle(res.data.message.title);
             setDesc(res.data.message.desc);
+            setLoading(false);
         };
 
         fetchData();
@@ -33,18 +36,15 @@ const SinglePost = () => {
 
     const handleUpdate = async () => {
         try {
-            setLoading(true);
             await axios.put(`/posts/${singlPost._id}`, {
                 username: user.username,
                 title,
                 desc,
             });
 
-            setLoading(false);
             window.location.reload();
         } catch (error) {
             console.log(error);
-            setLoading(false);
         }
     };
 
@@ -58,6 +58,10 @@ const SinglePost = () => {
             console.log(error);
         }
     };
+
+    if (loading) {
+        return <img src={loader1} alt="loading.." className="loader_img" />;
+    }
 
     return (
         <div className="singlePost container mt-5">
@@ -139,21 +143,7 @@ const SinglePost = () => {
                         }}
                         className="update_post"
                     >
-                        {loading ? (
-                            <img
-                                src={loader}
-                                alt="loading.."
-                                style={{
-                                    position: 'absolute',
-                                    left: '40%',
-                                    top: '1%',
-                                    height: '25px',
-                                    width: '25px',
-                                }}
-                            />
-                        ) : (
-                            'Update Post'
-                        )}
+                        Update Post
                     </button>
                 )}
             </div>

@@ -1,21 +1,23 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
+import loader from '../../Image/Spinner-1s-71px.png';
 import Post from '../Post/Post';
 import './posts.css';
 
-const Posts = ({ posts }) => (
-    // const [page, setPage] = useState(1);
+const Posts = ({ posts, loading }) => {
+    if (loading) {
+        return <img src={loader} alt="loading.." className="loader_imgg" />;
+    }
 
-    // const fetchMore = () => {
-    //     setPage(page + 9);
-    // };
-
-    <div className="post_sec">
-        <div className="posts">
-            {posts.map((p) => (
-                <Post key={p._id} post={p} />
-            ))}
+    return (
+        <div className="post_sec">
+            <div className="posts">
+                {posts?.map((p) => (
+                    <Post key={p._id} post={p} />
+                ))}
+            </div>
         </div>
-    </div>
-);
+    );
+};
+
 export default Posts;

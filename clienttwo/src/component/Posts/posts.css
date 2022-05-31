@@ -17,6 +17,11 @@
           align-items: center;
 }
 
+.loader_imgg {
+  margin-left: 48%;
+  margin-top: 0px !important;
+}
+
 @media screen and (max-width: 767px) {
   .post_sec .posts {
     display: -ms-grid;
@@ -32,6 +37,9 @@
     display: grid;
     -ms-grid-columns: 90%;
         grid-template-columns: 90%;
+  }
+  .loader_imgg {
+    margin-left: 39%;
   }
 }
 /*# sourceMappingURL=posts.css.map */

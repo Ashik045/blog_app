@@ -4,6 +4,11 @@
   margin-right: auto;
 }
 
+.loader_img {
+  margin-left: 48%;
+  margin-top: 150px;
+}
+
 @media screen and(max-width: 767px) {
   .my_posts {
     width: 80%;
@@ -17,5 +22,9 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .loader_img {
+    margin-left: 39%;
   }
 }

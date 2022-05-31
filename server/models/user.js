@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const mongoose = require('mongoose');
 
 // create user schema
@@ -22,7 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-    }
+    },
 );
 
 // create user model
