@@ -4,8 +4,8 @@
 }
 .post_sec .posts {
   display: grid;
-  grid-template-columns: 47% 47%;
-  grid-gap: 30px;
+  grid-template-columns: 49% 49%;
+  grid-gap: 25px;
   justify-content: center;
   align-items: center;
 }

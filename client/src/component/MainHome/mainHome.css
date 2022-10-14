@@ -3,18 +3,17 @@
   overflow-x: hidden;
 }
 .main_home .main_body .home_content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 65% 33%;
+  grid-gap: 25px;
   justify-content: space-between;
-  gap: 15px;
-}
-.main_home .main_body .home_content .left {
-  flex: 8;
-}
-.main_home .main_body .home_content .right {
-  flex: 4;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
+  .main_home .main_body .home_content {
+    display: grid;
+    grid-template-columns: 100%;
+  }
   .main_home .main_body .home_content .right {
     display: none;
   }

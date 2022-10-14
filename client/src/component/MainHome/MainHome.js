@@ -1,8 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // import loader from '../../Image/Spinner-1s-71px.png';
 import Header from '../Header/Header';
+import PopularPost from '../PopularPost/PopularPost';
 import Posts from '../Posts/Posts';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import './mainHome.css';
@@ -41,8 +43,11 @@ const MainHome = () => {
                     </div>
 
                     <div className="right">
-                        <h3>Most Popular</h3>
-                        {popularPost.length}
+                        <h4 style={{ color: '#ff577ec5', letterSpacing: '2px' }}>MOST POPULAR</h4>
+                        {popularPost.length > 0 &&
+                            popularPost.map((popularpost) => (
+                                <PopularPost key={popularpost._id} post={popularpost} />
+                            ))}
                     </div>
                 </div>
             </div>
