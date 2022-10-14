@@ -3,6 +3,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // import loader from '../../Image/Spinner-1s-71px.png';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import Header from '../Header/Header';
 import PopularPost from '../PopularPost/PopularPost';
 import Posts from '../Posts/Posts';
@@ -43,10 +45,17 @@ const MainHome = () => {
 
                     <div className="right">
                         <h4 style={{ color: '#ff577ec5', letterSpacing: '2px' }}>MOST POPULAR</h4>
-                        {popularPost.length > 0 &&
+                        {loading ? (
+                            <>
+                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
+                            </>
+                        ) : (
                             popularPost.map((popularpost) => (
                                 <PopularPost key={popularpost._id} post={popularpost} />
-                            ))}
+                            ))
+                        )}
                     </div>
                 </div>
             </div>

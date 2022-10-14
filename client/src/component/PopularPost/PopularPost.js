@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from 'react-router-dom';
 import './popularpost.css';
 

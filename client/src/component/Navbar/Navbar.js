@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useContext, useState } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
+import { FaSearch } from 'react-icons/fa';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import noPhoto from '../../Image/no-photo.png';
@@ -9,6 +11,7 @@ import './navbar.css';
 
 const Navbar = () => {
     const [toggler, setToggler] = useState(false);
+    const [inpVal, setInpVal] = useState('');
     const { user, dispatch } = useContext(Context);
     const navigate = useNavigate();
 
@@ -28,6 +31,15 @@ const Navbar = () => {
         navigate('/');
     };
 
+    const handleChange = (e) => {
+        setInpVal(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(inpVal);
+    };
+
     return (
         <div className="navbar">
             <div className="nav_brand">
@@ -37,12 +49,23 @@ const Navbar = () => {
             </div>
 
             <div className="nav_right">
+                <div className="search">
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Search.."
+                            value={inpVal}
+                            onChange={handleChange}
+                        />
+                        <button type="submit">
+                            <FaSearch className="search_icon" />
+                        </button>
+                    </form>
+                </div>
+
                 <div className="nav_menu">
                     <NavLink to="/">
                         <a href="">Home</a>
-                    </NavLink>
-                    <NavLink to="/">
-                        <a href="">About</a>
                     </NavLink>
                     <NavLink to="/seetings">
                         <a href="">User</a>

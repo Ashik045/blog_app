@@ -1,12 +1,15 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { MdBorderColor } from 'react-icons/md';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import postt from '../../Image/no-image-available-icon-6.png';
-import loader1 from '../../Image/Spinner-1s-71px.png';
+// import loader1 from '../../Image/Spinner-1s-71px.png';
 import './singlePost.css';
 
 const SinglePost = () => {
@@ -62,13 +65,15 @@ const SinglePost = () => {
         }
     };
 
-    if (loading) {
-        return <img src={loader1} alt="loading.." className="loader_img" />;
-    }
+    // if (loading) {
+    //     return <Skeleton height={500} />;
+    // }
 
     return (
         <div className="singlePost container mt-5">
-            {singlPost.photo ? (
+            {loading ? (
+                <Skeleton height={500} />
+            ) : singlPost.photo ? (
                 <img src={singlPost.photo} alt="noimg" />
             ) : (
                 <img src={postt} alt="default-img" />
@@ -84,6 +89,8 @@ const SinglePost = () => {
                         autoFocus
                         onChange={(e) => setTitle(e.target.value)}
                     />
+                ) : loading ? (
+                    <Skeleton />
                 ) : (
                     <h3 className="post_title ">{singlPost.title}</h3>
                 )}
@@ -110,19 +117,22 @@ const SinglePost = () => {
                     </div>
                 )}
             </div>
-
             <div className="post_text">
-                <p>
-                    Author:{' '}
-                    <Link to={`/users/?user=${singlPost.username}`} className="authorName">
-                        <b>{singlPost.username}</b>
-                    </Link>{' '}
-                    <i className="text-muted">
-                        <small style={{ marginLeft: '20px', fontSize: '14px' }}>
-                            {new Date(singlPost.createdAt).toDateString()}
-                        </small>
-                    </i>
-                </p>
+                {loading ? (
+                    <Skeleton />
+                ) : (
+                    <p>
+                        Author:{' '}
+                        <Link to={`/users/?user=${singlPost.username}`} className="authorName">
+                            <b>{singlPost.username}</b>
+                        </Link>{' '}
+                        <i className="text-muted">
+                            <small style={{ marginLeft: '20px', fontSize: '14px' }}>
+                                {new Date(singlPost.createdAt).toDateString()}
+                            </small>
+                        </i>
+                    </p>
+                )}
 
                 {updMode ? (
                     <textarea
@@ -133,7 +143,7 @@ const SinglePost = () => {
                         className="textDesc_inp"
                     />
                 ) : (
-                    <p className="textDesc">{singlPost.desc}</p>
+                    <p className="textDesc">{singlPost.desc || <Skeleton count={6} />}</p>
                 )}
 
                 {updMode && (

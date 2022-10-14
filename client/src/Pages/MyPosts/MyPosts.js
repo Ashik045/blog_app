@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { useLocation } from 'react-router-dom';
 import Posts from '../../component/Posts/Posts';
 import SectionHeader from '../../component/SectionHeader/SectionHeader';
-import loader from '../../Image/Spinner-1s-71px.png';
 import './myposts.css';
 
 const MyPosts = () => {
@@ -22,24 +23,45 @@ const MyPosts = () => {
         data();
     }, [search]);
 
-    if (loading) {
-        return <img src={loader} alt="loading.." className="loader_img" />;
-    }
-
     return (
         <div className="my_posts">
-            <div className="posts">
-                {post?.length >= 1 ? (
-                    <SectionHeader subHeader="Travel Story" header="Best Travel Story  Shared." />
-                ) : (
-                    <SectionHeader
-                        subHeader="Opps!!"
-                        header="You don't have shared any stories yet!"
-                    />
-                )}
+            {loading ? (
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: '50% 50%',
+                        gridGap: '20px',
+                        marginTop: '100px',
+                    }}
+                >
+                    <div>
+                        <Skeleton height={250} />
+                        <Skeleton height={40} style={{ marginTop: '10px', marginBottom: '10px' }} />
+                        <Skeleton count={4} />
+                    </div>
+                    <div>
+                        <Skeleton height={250} />
+                        <Skeleton height={40} style={{ marginTop: '10px', marginBottom: '10px' }} />
+                        <Skeleton count={4} />
+                    </div>
+                </div>
+            ) : (
+                <div className="posts">
+                    {post.length > 0 ? (
+                        <SectionHeader
+                            subHeader="Travel Story"
+                            header="Best Travel Story  Shared."
+                        />
+                    ) : (
+                        <SectionHeader
+                            subHeader="Opps!!"
+                            header="You don't have shared any stories yet!"
+                        />
+                    )}
 
-                <Posts posts={post} />
-            </div>
+                    <Posts posts={post} />
+                </div>
+            )}
         </div>
     );
 };
