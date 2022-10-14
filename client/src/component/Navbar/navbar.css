@@ -1,60 +1,50 @@
 .navbar {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+  margin-left: 10px;
   height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  justify-content: space-between;
+  align-items: center;
   background-color: #f6fcfd;
   z-index: 100;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-
 .navbar .nav_brand {
-  margin-left: 5%;
   margin-top: 8px;
 }
-
 .navbar .nav_brand h5 {
   cursor: pointer;
   font-weight: bold;
   font-size: 23px;
 }
-
-.navbar .nav_menu a {
+.navbar .nav_right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.navbar .nav_right .nav_menu a {
   text-decoration: none;
   text-transform: uppercase;
   color: black;
   font-weight: 400;
   font-size: 17px;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   padding: 10px 7px;
 }
-
-.navbar .nav_menu a:hover {
+.navbar .nav_right .nav_menu a:hover {
   font-weight: 500;
-  color: #0fd687;
+  color: rgba(251, 37, 119, 0.8784313725);
 }
-
-.navbar .nav_reg {
-  margin-right: 5%;
+.navbar .nav_right .nav_reg {
+  display: flex;
+  width: 150px;
 }
-
-.navbar .nav_reg .profilePic {
+.navbar .nav_right .nav_reg .profilePic {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -63,122 +53,116 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-
-.navbar .nav_reg button {
+.navbar .nav_right .nav_reg button {
   background: none;
   border: 1px solid black;
   color: black;
   padding: 5px 16px;
   border-radius: 5px;
   font-weight: bold;
-  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-
-.navbar .nav_reg button:hover {
+.navbar .nav_right .nav_reg button:hover {
   background-color: black;
   color: white;
 }
-
-.navbar .res_navbar {
+.navbar .nav_right .res_navbar {
   display: none;
 }
+.navbar .nav_right .res_navbar .res_nav_menu {
+  position: absolute;
+  top: 56px;
+  right: -80px;
+  background-color: white;
+  width: 300px;
+  padding: 20px 5px;
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.navbar .nav_right .res_navbar .res_nav_menu a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 400;
+  font-size: 17px;
+  transition: all 0.3s ease;
+  padding: 5px 8px;
+}
+.navbar .nav_right .res_navbar .res_nav_menu a:hover {
+  font-weight: 500;
+  color: rgba(251, 37, 119, 0.8784313725);
+}
+.navbar .nav_right .res_navbar .res_nav_menu .res_nav_reg {
+  display: none;
+}
+.navbar .nav_right .res_navbar .res_nav_menu .res_nav_reg button {
+  background: none;
+  border: 1px solid black;
+  color: black;
+  padding: 5px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.navbar .nav_right .res_navbar .res_nav_menu .res_nav_reg button:hover {
+  background-color: black;
+  color: white;
+}
+@-webkit-keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}
 
-@media screen and (max-width: 767px) {
-  .navbar .nav_menu {
+@media screen and (max-width: 800px) {
+  .navbar {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+  .navbar .nav_right .nav_menu {
     display: none;
   }
-  .navbar .nav_reg {
+  .navbar .nav_right .nav_reg {
     margin-left: auto;
+    margin-right: 15px;
   }
-  .navbar .res_navbar {
+  .navbar .nav_right .res_navbar {
     display: block;
     margin-right: 5%;
     position: relative;
   }
-  .navbar .res_navbar .res_nav_menu {
-    position: absolute;
-    top: 54px;
-    right: -80px;
-    background-color: #c5e3f6;
-    width: 300px;
-    padding: 20px 5px;
-    -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  .navbar .res_navbar .res_nav_menu a {
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: black;
-    font-weight: 400;
-    font-size: 17px;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    padding: 5px 8px;
-  }
-  .navbar .res_navbar .res_nav_menu a:hover {
-    font-weight: 500;
-    color: #0fd687;
-  }
-  .navbar .res_navbar .res_nav_menu .res_nav_reg {
-    display: none;
-  }
-  .navbar .res_navbar .res_nav_menu .res_nav_reg button {
-    background: none;
-    border: 1px solid black;
-    color: black;
-    padding: 5px 16px;
-    border-radius: 5px;
-    font-weight: bold;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-  .navbar .res_navbar .res_nav_menu .res_nav_reg button:hover {
-    background-color: black;
-    color: white;
-  }
-  @-webkit-keyframes slide-left {
-    0% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-    }
-    100% {
-      -webkit-transform: translateX(-100px);
-      transform: translateX(-100px);
-    }
-  }
-  @keyframes slide-left {
-    0% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-    }
-    100% {
-      -webkit-transform: translateX(-100px);
-      transform: translateX(-100px);
-    }
-  }
 }
-
-@media screen and (max-width: 650px) {
-  .navbar .nav_reg {
-    margin-right: 3%;
+@media screen and (max-width: 576px) {
+  .navbar .nav_right .nav_reg {
+    display: flex;
+    width: 50px;
   }
-  .navbar .nav_reg button {
+  .navbar .nav_right .nav_reg button {
     display: none;
   }
-  .navbar .nav_reg .profilePic {
+  .navbar .nav_right .nav_reg .profilePic {
     height: 35px;
     width: 35px;
   }
-  .navbar .res_navbar .res_nav_menu {
-    margin-right: -25px;
+  .navbar .nav_right .res_navbar .res_nav_menu {
+    margin-right: -15px;
     text-align: center;
   }
-  .navbar .res_navbar .res_nav_menu .res_nav_reg {
+  .navbar .nav_right .res_navbar .res_nav_menu .res_nav_reg {
     display: block;
   }
-}
-/*# sourceMappingURL=navbar.css.map */
+}/*# sourceMappingURL=navbar.css.map */

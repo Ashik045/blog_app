@@ -23,6 +23,10 @@ const PostSchema = mongoose.Schema(
             type: Array,
             required: false,
         },
+        popular: {
+            type: String,
+            default: false,
+        },
     },
     {
         timestamps: true,

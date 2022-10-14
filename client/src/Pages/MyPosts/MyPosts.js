@@ -31,7 +31,7 @@ const MyPosts = () => {
             {post?.length >= 1 ? (
                 <SectionHeader subHeader="Travel Story" header="Best Travel Story  Shared." />
             ) : (
-                <SectionHeader subHeader="Opps!!" header="You don't have shared any storys yet!" />
+                <SectionHeader subHeader="Opps!!" header="You don't have shared any stories yet!" />
             )}
 
             <Posts posts={post} />

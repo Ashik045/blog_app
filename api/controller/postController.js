@@ -101,6 +101,8 @@ const getPost = async (req, res) => {
 const getAllPost = async (req, res) => {
     const username = req.query.user;
     const category = req.query.cat;
+    const { popular } = req.query;
+
     try {
         let posts;
         if (username) {
@@ -111,6 +113,8 @@ const getAllPost = async (req, res) => {
                     $in: [category],
                 },
             });
+        } else if (popular) {
+            posts = await Post.find({ popular });
         } else {
             posts = await Post.find().sort({ createdAt: -1 });
         }
@@ -140,6 +144,22 @@ const allPostOfUser = async (req, res) => {
         });
     }
 };
+
+// get all posts of a user
+// const popularPost = async (req, res) => {
+//     const { popular } = req.query;
+//     try {
+//         const posts = await Post.find({ popular });
+
+//         res.status(200).json({
+//             message: posts,
+//         });
+//     } catch (err) {
+//         res.status(500).json({
+//             error: 'There was no post!',
+//         });
+//     }
+// };
 
 module.exports = {
     createPost,

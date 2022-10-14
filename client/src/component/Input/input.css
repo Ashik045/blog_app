@@ -2,15 +2,13 @@
   font-size: 18px;
   font-weight: 500;
 }
-
 .inp_div .signInp {
   display: block !important;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 2px solid #696867;
+  border-bottom: 2px solid rgb(105, 104, 103);
   width: 80%;
 }
-
 .inp_div .error {
   color: red;
   margin-top: -10px;
@@ -19,8 +17,7 @@
   margin-bottom: 4px;
   display: none;
 }
-
-.inp_div .signInp:invalid[focused="true"] ~ .error {
+.inp_div .signInp:invalid[focused=true] ~ .error {
   display: block;
 }
 
@@ -28,5 +25,4 @@
   .inp_div .signInp {
     width: 98%;
   }
-}
-/*# sourceMappingURL=input.css.map */
+}/*# sourceMappingURL=input.css.map */

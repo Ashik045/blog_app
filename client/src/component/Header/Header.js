@@ -1,8 +1,9 @@
 import React from 'react';
-import SwiperCore, { Autoplay, EffectFade, Pagination } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 // import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
+
 import 'swiper/swiper.min.css';
 import Four from '../../Image/four.jpg';
 import One from '../../Image/one.jpg';
@@ -10,7 +11,7 @@ import Three from '../../Image/three.jpg';
 import Two from '../../Image/two.jpg';
 import './header.css';
 
-SwiperCore.use([Pagination, Autoplay, EffectFade]);
+SwiperCore.use([Pagination, Autoplay]);
 
 // create project header
 const Header = () => (
@@ -20,9 +21,10 @@ const Header = () => (
                 pagination={{
                     dynamicBullets: true,
                 }}
+                modules={[Pagination]}
                 className="mySwiper"
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 loop

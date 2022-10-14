@@ -16,7 +16,6 @@
     margin-right: auto;
   }
 }
-
 @media screen and (max-width: 576px) {
   .my_posts {
     width: 90%;
@@ -26,5 +25,4 @@
   .loader_img {
     margin-left: 39%;
   }
-}
-/*# sourceMappingURL=myposts.css.map */
+}/*# sourceMappingURL=myposts.css.map */

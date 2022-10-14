@@ -5,7 +5,6 @@
   position: relative;
   margin-top: 70px;
 }
-
 .loginForm img {
   position: absolute;
   top: -90px;
@@ -13,7 +12,6 @@
   width: 500px;
   height: 500px;
 }
-
 .loginForm .body_form {
   width: 500px;
   height: 400px;
@@ -21,14 +19,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 20px;
   padding: 20px;
 }
-
 .loginForm .body_form .fform h3 {
   margin: 15px 0 40px;
   text-align: center;
@@ -36,12 +31,10 @@
   color: #fc5185;
   font-size: 29px;
 }
-
 .loginForm .body_form .fform .error {
   color: red;
   margin-top: -5px;
 }
-
 .loginForm .body_form .fform .submit_btn {
   margin-top: 30px;
   background-color: #88bef5;
@@ -53,13 +46,10 @@
   cursor: pointer;
   display: block;
 }
-
 .loginForm .body_form .fform .submit_btn:hover {
-  -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: #35bdd8;
 }
-
 .loginForm .body_form .fform .submit_btn:disabled {
   cursor: not-allowed;
   background-color: #5cabbb;
@@ -71,11 +61,9 @@
     height: 400px;
   }
 }
-
 @media screen and (max-width: 450px) {
   .loginForm .body_form {
     width: 300px;
     height: 400px;
   }
-}
-/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */

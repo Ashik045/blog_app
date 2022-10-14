@@ -2,12 +2,10 @@
   padding-bottom: 70px;
   overflow-x: hidden;
 }
-
 .write_section .imgWrite {
   overflow: hidden;
   margin: 110px 0 -100px;
 }
-
 .write_section .imgWrite img {
   width: 100% !important;
   height: 65vh;
@@ -16,59 +14,41 @@
   background-position: center;
   border-radius: 15px;
   opacity: 0.9;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-
 .write_section .imgWrite img:hover {
   opacity: 1;
 }
-
 .write_section .writeForm {
   margin-top: 150px;
 }
-
 .write_section .writeForm .writeFormGroup {
   margin-left: 15%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .write_section .writeForm .writeFormGroup .upIcon {
   border: 1px solid black;
   border-radius: 50%;
   padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .write_section .writeForm .writeFormGroup .writeInp {
   padding: 7px 10px 10px;
   font-size: 28px;
   font-weight: 700;
   margin-left: 2%;
   border: none;
-  border-bottom: 3px solid #81807e;
+  border-bottom: 3px solid rgb(129, 128, 126);
 }
-
 .write_section .writeForm .writeFormGroup textarea {
   font-size: 18px;
   margin: 20px 0;
   border: none;
   font-weight: 500;
 }
-
 .write_section .writeForm .submit_btn {
   border: none;
   background-color: #88bef5;
@@ -81,11 +61,9 @@
   cursor: pointer;
   margin-top: 15px;
 }
-
 .write_section .writeForm .submit_btn:hover {
   background-color: #43dde6;
 }
-
 .write_section .writeForm .appErr {
   color: red;
   display: block;
@@ -99,7 +77,6 @@
     right: 20%;
   }
 }
-
 @media screen and (max-width: 576px) {
   .write_section .imgWrite {
     margin-top: 40px;
@@ -122,5 +99,4 @@
     position: absolute;
     left: -10px;
   }
-}
-/*# sourceMappingURL=write.css.map */
+}/*# sourceMappingURL=write.css.map */

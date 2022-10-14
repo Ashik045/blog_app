@@ -9,6 +9,7 @@ import './mainHome.css';
 
 const MainHome = () => {
     const [post, setPost] = useState([]);
+    const [popularPost, setPopularPost] = useState([]);
     const [loading, setLoading] = useState(false);
 
     // fetch data
@@ -17,12 +18,15 @@ const MainHome = () => {
             setLoading(true);
 
             const res = await axios.get(`https://journal11.herokuapp.com/api/posts`);
+            const res2 = await axios.get(`http://localhost:5000/api/posts?popular=true`);
             setPost(res.data.message);
+            setPopularPost(res2.data.message);
             setLoading(false);
         };
 
         fetchData();
     }, []);
+    console.log(popularPost);
 
     return (
         <div className="main_home">
@@ -30,7 +34,17 @@ const MainHome = () => {
 
             <div className="main_body container" id="about">
                 <SectionHeader subHeader="Travel Story" header="Best Tourist's Shared Story" />
-                <Posts posts={post} loading={loading} />
+
+                <div className="home_content">
+                    <div className="left">
+                        <Posts posts={post} loading={loading} />
+                    </div>
+
+                    <div className="right">
+                        <h3>Most Popular</h3>
+                        {popularPost.length}
+                    </div>
+                </div>
             </div>
         </div>
     );

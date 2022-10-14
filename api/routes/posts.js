@@ -31,4 +31,7 @@ router.get('/', getAllPost);
 // get all post of a user
 router.get('/allpost/', allPostOfUser);
 
+// // get popular
+// router.get('/', popularPost);
+
 module.exports = router;

@@ -3,12 +3,9 @@
   margin-bottom: 70px;
   text-align: center;
 }
-
 .post_sec_header h5 {
-  color: #17b978;
+  color: gray;
 }
-
 .post_sec_header h1 {
   font-family: "Fredoka", sans-serif;
-}
-/*# sourceMappingURL=sectionheader.css.map */
+}/*# sourceMappingURL=sectionheader.css.map */

@@ -1,4 +1,32 @@
 .main_home {
   width: 100%;
   overflow-x: hidden;
+
+  .main_body {
+    .home_content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+
+      .left {
+        flex: 8;
+      }
+
+      .right {
+        flex: 4;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main_home {
+    .main_body {
+      .home_content {
+        .right {
+          display: none;
+        }
+      }
+    }
+  }
 }

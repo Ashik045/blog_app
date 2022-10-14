@@ -4,7 +4,6 @@
   margin-bottom: 60px;
   padding-top: 40px;
 }
-
 .singlePost img {
   margin-top: 10px;
   width: 100%;
@@ -13,19 +12,13 @@
      object-fit: cover;
   border-radius: 5px;
 }
-
 .singlePost .title_updel {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 80% 20%;
-      grid-template-columns: 80% 20%;
+  grid-template-columns: 80% 20%;
   justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   grid-gap: 15px;
 }
-
 .singlePost .title_updel h3 {
   text-transform: capitalize;
   margin: 20px 0px;
@@ -33,71 +26,55 @@
   font-family: "Varela Round", sans-serif;
   text-align: center;
 }
-
 .singlePost .title_updel .post_title_inp {
   text-transform: capitalize;
   font-weight: 700;
   font-family: "Varela Round", sans-serif;
   border: none;
-  color: #5e5d5d;
-  border-bottom: 3px solid #302f2f;
+  color: rgb(94, 93, 93);
+  border-bottom: 3px solid rgb(48, 47, 47);
   font-size: 22px;
   margin: 20px 0px;
 }
-
 .singlePost .title_updel .post_title_inp:focus {
   outline: none;
 }
-
 .singlePost .title_updel .updel {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   margin-right: 10px;
 }
-
 .singlePost .title_updel .updel .updel_btnn {
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-
 .singlePost .title_updel .updel .updel_btnn:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
 }
-
 .singlePost .post_text p:first-child {
   font-size: 17px;
 }
-
 .singlePost .post_text .authorName {
   color: black;
   font-size: 20px;
   font-weight: 600;
   text-decoration: underline;
 }
-
 .singlePost .post_text .textDesc {
   font-family: "Varela Round", sans-serif;
   line-height: 35px;
-  color: #555353;
+  color: rgb(85, 83, 83);
 }
-
 .singlePost .post_text .textDesc_inp {
   font-family: "Varela Round", sans-serif;
   width: 95%;
-  border: 1px solid #8a8989;
+  border: 1px solid rgb(138, 137, 137);
 }
-
 .singlePost .post_text .textDesc::first-letter {
   margin-left: 15px;
   font-size: 30px;
   font-weight: 600;
   color: black;
 }
-
 .singlePost .post_text .update_post {
   background: none;
   border: none;
@@ -109,7 +86,6 @@
   margin-left: 80%;
   margin-top: 20px;
 }
-
 .singlePost .post_text .update_post:hover {
   background-color: #43dde6;
 }
@@ -128,7 +104,6 @@
     margin-left: 70%;
   }
 }
-
 @media screen and (max-width: 576px) {
   .singlePost .title_updel h3 {
     margin: 15px 0px;
@@ -153,5 +128,4 @@
   .loader_img {
     margin-left: 39%;
   }
-}
-/*# sourceMappingURL=singlePost.css.map */
+}/*# sourceMappingURL=singlePost.css.map */

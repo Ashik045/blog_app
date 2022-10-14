@@ -9,7 +9,7 @@
 
 @mixin menuStyleHover {
   font-weight: 500;
-  color: #0fd687;
+  color: #fb2577e0;
 }
 
 @mixin reg-button {
@@ -28,21 +28,22 @@
 }
 
 .navbar {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+  margin-left: 10px;
   height: 80px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 20% 80%;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
   background-color: #f6fcfd;
   z-index: 100;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   transition: all 0.2s ease;
 
   .nav_brand {
-    margin-left: 5%;
     margin-top: 8px;
     h5 {
       cursor: pointer;
@@ -51,63 +52,52 @@
     }
   }
 
-  .nav_menu {
-    a {
-      @include menuStyle();
-      padding: 10px 7px;
-    }
+  .nav_right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 
-    a:hover {
-      @include menuStyleHover();
-    }
-  }
-
-  .nav_reg {
-    margin-right: 5%;
-
-    .profilePic {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-      cursor: pointer;
-      object-fit: cover;
-    }
-
-    button {
-      @include reg-button();
-    }
-
-    button:hover {
-      @include reg-button-hover();
-    }
-  }
-
-  .res_navbar {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .navbar {
     .nav_menu {
-      display: none;
+      // margin-right: 15px;
+      a {
+        @include menuStyle();
+        padding: 10px 7px;
+      }
+
+      a:hover {
+        @include menuStyleHover();
+      }
     }
 
     .nav_reg {
-      margin-left: auto;
+      display: flex;
+      width: 150px;
+      .profilePic {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+        object-fit: cover;
+      }
+
+      button {
+        @include reg-button();
+      }
+
+      button:hover {
+        @include reg-button-hover();
+      }
     }
 
     .res_navbar {
-      display: block;
-      margin-right: 5%;
-      position: relative;
+      display: none;
 
       .res_nav_menu {
         position: absolute;
-        top: 54px;
+        top: 56px;
         right: -80px;
-        background-color: #c5e3f6;
+        background-color: white;
         width: 300px;
         padding: 20px 5px;
         -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -162,26 +152,51 @@
   }
 }
 
-@media screen and(max-width: 650px) {
+@media screen and (max-width: 800px) {
   .navbar {
-    .nav_reg {
-      margin-right: 3%;
-      button {
+    padding-right: 10px;
+    padding-left: 20px;
+    .nav_right {
+      .nav_menu {
         display: none;
       }
 
-      .profilePic {
-        height: 35px;
-        width: 35px;
+      .nav_reg {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      .res_navbar {
+        display: block;
+        margin-right: 5%;
+        position: relative;
       }
     }
+  }
+}
+@media screen and(max-width: 576px) {
+  .navbar {
+    .nav_right {
+      .nav_reg {
+        display: flex;
+        width: 50px;
+        button {
+          display: none;
+        }
 
-    .res_navbar {
-      .res_nav_menu {
-        margin-right: -25px;
-        text-align: center;
-        .res_nav_reg {
-          display: block;
+        .profilePic {
+          height: 35px;
+          width: 35px;
+        }
+      }
+
+      .res_navbar {
+        .res_nav_menu {
+          margin-right: -15px;
+          text-align: center;
+          .res_nav_reg {
+            display: block;
+          }
         }
       }
     }
