@@ -28,14 +28,18 @@ const MyPosts = () => {
 
     return (
         <div className="my_posts">
-            {post?.length >= 1 ? (
-                <SectionHeader subHeader="Travel Story" header="Best Travel Story  Shared." />
-            ) : (
-                <SectionHeader subHeader="Opps!!" header="You don't have shared any stories yet!" />
-            )}
+            <div className="posts">
+                {post?.length >= 1 ? (
+                    <SectionHeader subHeader="Travel Story" header="Best Travel Story  Shared." />
+                ) : (
+                    <SectionHeader
+                        subHeader="Opps!!"
+                        header="You don't have shared any stories yet!"
+                    />
+                )}
 
-            <Posts posts={post} />
-            {/* <SectionHeader subHeader="Opps!!" header="You Haven't created any posts yet!" /> */}
+                <Posts posts={post} />
+            </div>
         </div>
     );
 };

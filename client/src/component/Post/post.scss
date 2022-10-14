@@ -19,15 +19,12 @@
     .post_cat {
       display: flex;
       justify-content: space-between;
-      padding-top: 5px;
+      align-items: center;
+      padding-top: 0px;
 
-      .tags {
-        margin-left: 5%;
-        span {
-          margin-left: 10px;
-          text-transform: capitalize;
-          cursor: pointer;
-        }
+      .username {
+        // color: #16213e;
+        margin-top: 0px;
       }
 
       .post_date {
@@ -35,6 +32,7 @@
         padding-top: 5px;
         font-size: 14px;
         margin-top: -10px;
+        // color: gray;
       }
     }
 
@@ -43,7 +41,7 @@
       font-size: 23px;
       font-weight: 600;
       margin-left: 1%;
-      margin-top: 0px;
+      margin-top: -5px;
       font-family: "Open Sans", sans-serif;
       cursor: pointer;
       color: rgb(44, 43, 43);

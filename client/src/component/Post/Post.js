@@ -13,15 +13,14 @@ const Post = ({ post }) => (
 
         <div className="post_info">
             <div className="post_cat ">
-                <div className="tags text-muted">
-                    {post.categories?.map((c) => (
-                        <span key={c}>
-                            <i>{c.name}</i>
-                        </span>
-                    ))}
-                </div>
+                <p className="username">
+                    Author:
+                    <Link to={`/users/?user=${post.username}`} style={{ color: '#16213E' }}>
+                        <span> {post.username}</span>
+                    </Link>
+                </p>
 
-                <p className="post_date text-muted">
+                <p className="post_date">
                     <i>{new Date(post.createdAt).toDateString()}</i>
                 </p>
             </div>

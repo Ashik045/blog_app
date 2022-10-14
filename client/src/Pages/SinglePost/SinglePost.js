@@ -1,7 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { BiEdit, BiTrash } from 'react-icons/bi';
+import { BiTrash } from 'react-icons/bi';
+import { MdBorderColor } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import postt from '../../Image/no-image-available-icon-6.png';
@@ -33,6 +34,8 @@ const SinglePost = () => {
 
         fetchData();
     }, [path]);
+
+    console.log(user);
 
     const handleUpdate = async () => {
         try {
@@ -85,13 +88,13 @@ const SinglePost = () => {
                     <h3 className="post_title ">{singlPost.title}</h3>
                 )}
 
-                {singlPost.username === user.username && (
+                {singlPost.username === user?.username && (
                     <div className="updel">
                         {!updMode && (
-                            <BiEdit
+                            <MdBorderColor
                                 // onClick={updatePost}
                                 size={26}
-                                color="rgb(28, 202, 28)"
+                                color="#182747"
                                 style={{ cursor: 'pointer' }}
                                 className="updel_btnn"
                                 onClick={() => setUpdMode(true)}
@@ -99,7 +102,7 @@ const SinglePost = () => {
                         )}
                         <BiTrash
                             size={26}
-                            color="rgb(221, 30, 30)"
+                            color="#E94560"
                             style={{ marginLeft: '20px', cursor: 'pointer' }}
                             className="updel_btnn"
                             onClick={deletePost}

@@ -14,10 +14,12 @@
   font-weight: 600;
 }
 .sidebar img {
-  width: 100%;
+  width: 90%;
   height: auto;
   margin-left: 4%;
-  border-radius: 5px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sidebar p {
   font-family: "Open Sans", sans-serif;

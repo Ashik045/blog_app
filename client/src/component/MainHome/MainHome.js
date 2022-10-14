@@ -28,7 +28,6 @@ const MainHome = () => {
 
         fetchData();
     }, []);
-    console.log(popularPost);
 
     return (
         <div className="main_home">

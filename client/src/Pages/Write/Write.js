@@ -63,7 +63,7 @@ const Write = () => {
             )}
 
             <form className="writeForm" onSubmit={handleSubmit}>
-                <div className="writeFormGroup ">
+                <div className="writeFormGroup">
                     <label htmlFor="writeFile">
                         <BiImageAdd size={35} className="upIcon" />
                     </label>

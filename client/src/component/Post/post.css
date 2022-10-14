@@ -19,15 +19,11 @@
 .single_post .post_info .post_cat {
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
+  align-items: center;
+  padding-top: 0px;
 }
-.single_post .post_info .post_cat .tags {
-  margin-left: 5%;
-}
-.single_post .post_info .post_cat .tags span {
-  margin-left: 10px;
-  text-transform: capitalize;
-  cursor: pointer;
+.single_post .post_info .post_cat .username {
+  margin-top: 0px;
 }
 .single_post .post_info .post_cat .post_date {
   margin-right: 5%;
@@ -40,7 +36,7 @@
   font-size: 23px;
   font-weight: 600;
   margin-left: 1%;
-  margin-top: 0px;
+  margin-top: -5px;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
   color: rgb(44, 43, 43);

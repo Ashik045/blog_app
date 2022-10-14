@@ -3,13 +3,13 @@
   overflow-x: hidden;
   .imgWrite {
     overflow: hidden;
-    margin: 110px 0 -100px;
+    margin: 30px 0 -100px;
     img {
       width: 100% !important;
       height: 65vh;
       object-fit: cover;
       background-position: center;
-      border-radius: 15px;
+      border-radius: 10px;
       opacity: 0.9;
       transition: all 0.2s ease;
     }
@@ -20,11 +20,13 @@
   }
 
   .writeForm {
-    margin-top: 150px;
+    margin-top: 130px;
     .writeFormGroup {
-      margin-left: 15%;
+      // margin-left: 15%;
       display: flex;
       align-items: center;
+      justify-content: center;
+
       .upIcon {
         border: 1px solid black;
         border-radius: 50%;
@@ -36,18 +38,22 @@
 
       .writeInp {
         padding: 7px 10px 10px;
+        // width: 42%;
         font-size: 28px;
         font-weight: 700;
         margin-left: 2%;
         border: none;
+        outline: none;
         border-bottom: 3px solid rgb(129, 128, 126);
       }
 
       textarea {
         font-size: 18px;
         margin: 20px 0;
-        border: none;
+        border: 1px solid gray;
+        // outline: none;
         font-weight: 500;
+        border-radius: 2px;
       }
     }
 
@@ -59,7 +65,7 @@
       font-weight: 600;
       border-radius: 5px;
       position: absolute;
-      right: 40%;
+      right: 33%;
       cursor: pointer;
       margin-top: 15px;
     }
@@ -72,7 +78,7 @@
       color: red;
       display: block;
       margin-top: -15px;
-      margin-left: 15%;
+      margin-left: 30%;
     }
   }
 }
@@ -84,6 +90,10 @@
         position: absolute;
         right: 20%;
       }
+
+      .appErr {
+        margin-left: 0%;
+      }
     }
   }
 }
@@ -93,8 +103,8 @@
     .imgWrite {
       margin-top: 40px;
       img {
-        height: 40vh;
-        border-radius: 10px;
+        height: 27vh;
+        border-radius: 5px;
       }
     }
     .writeForm {
@@ -109,11 +119,6 @@
       .submit_btn {
         position: absolute;
         right: 10%;
-      }
-
-      .appErr {
-        position: absolute;
-        left: -10px;
       }
     }
   }
