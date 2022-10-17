@@ -1,34 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,400&family=Varela+Round&display=swap");
 .singlePost {
+  display: grid;
+  grid-template-columns: 65% 33%;
+  grid-gap: 25px;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin-bottom: 60px;
   padding-top: 0px;
 }
-.singlePost img {
+.singlePost .singlePost_detail {
+  margin-top: 50px;
+}
+.singlePost .singlePost_detail img {
   margin-top: 0px;
   width: 100%;
-  height: 70vh;
+  height: 65vh;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
 }
-.singlePost .title_updel {
+.singlePost .singlePost_detail .title_updel {
   display: grid;
   grid-template-columns: 80% 20%;
   justify-items: center;
   align-items: center;
   grid-gap: 15px;
 }
-.singlePost .title_updel h3 {
+.singlePost .singlePost_detail .title_updel h3 {
   text-transform: capitalize;
   margin: 20px 0px;
   font-weight: 700;
   font-family: "Varela Round", sans-serif;
   text-align: center;
 }
-.singlePost .title_updel .post_title_inp {
+.singlePost .singlePost_detail .title_updel .post_title_inp {
   text-transform: capitalize;
   font-weight: 700;
   font-family: "Varela Round", sans-serif;
@@ -38,46 +45,46 @@
   font-size: 22px;
   margin: 20px 0px;
 }
-.singlePost .title_updel .post_title_inp:focus {
+.singlePost .singlePost_detail .title_updel .post_title_inp:focus {
   outline: none;
 }
-.singlePost .title_updel .updel {
+.singlePost .singlePost_detail .title_updel .updel {
   display: flex;
   justify-content: space-around;
   margin-right: 10px;
 }
-.singlePost .title_updel .updel .updel_btnn {
+.singlePost .singlePost_detail .title_updel .updel .updel_btnn {
   transition: all 0.3s ease;
 }
-.singlePost .title_updel .updel .updel_btnn:hover {
+.singlePost .singlePost_detail .title_updel .updel .updel_btnn:hover {
   transform: scale(1.2);
 }
-.singlePost .post_text p:first-child {
+.singlePost .singlePost_detail .post_text p:first-child {
   font-size: 17px;
 }
-.singlePost .post_text .authorName {
+.singlePost .singlePost_detail .post_text .authorName {
   color: black;
   font-size: 20px;
   font-weight: 600;
   text-decoration: underline;
 }
-.singlePost .post_text .textDesc {
+.singlePost .singlePost_detail .post_text .textDesc {
   font-family: "Varela Round", sans-serif;
   line-height: 35px;
   color: rgb(85, 83, 83);
 }
-.singlePost .post_text .textDesc_inp {
+.singlePost .singlePost_detail .post_text .textDesc_inp {
   font-family: "Varela Round", sans-serif;
   width: 95%;
   border: 1px solid rgb(138, 137, 137);
 }
-.singlePost .post_text .textDesc::first-letter {
+.singlePost .singlePost_detail .post_text .textDesc::first-letter {
   margin-left: 15px;
   font-size: 30px;
   font-weight: 600;
   color: black;
 }
-.singlePost .post_text .update_post {
+.singlePost .singlePost_detail .post_text .update_post {
   background: none;
   border: none;
   background-color: #88bef5;
@@ -88,46 +95,55 @@
   margin-left: 80%;
   margin-top: 20px;
 }
-.singlePost .post_text .update_post:hover {
+.singlePost .singlePost_detail .post_text .update_post:hover {
   background-color: #43dde6;
 }
-
-.loader_img {
-  margin-left: 48%;
-  margin-top: 150px;
+.singlePost .popular_post_sec {
+  margin-top: 50px;
 }
 
+@media screen and (max-width: 992px) {
+  .singlePost {
+    display: grid;
+    grid-template-columns: 95%;
+    grid-gap: 25px;
+    justify-content: center;
+  }
+  .singlePost .popular_post_sec {
+    width: 60%;
+  }
+}
 @media screen and (max-width: 767px) {
-  .singlePost img {
+  .singlePost .singlePost_detail img {
     width: 100%;
     height: auto;
   }
-  .singlePost .post_text .update_post {
+  .singlePost .singlePost_detail .post_text .update_post {
     margin-left: 70%;
   }
 }
 @media screen and (max-width: 576px) {
-  .singlePost .title_updel h3 {
+  .singlePost .singlePost_detail .title_updel h3 {
     margin: 15px 0px;
     font-weight: 600;
     font-size: 20px;
     text-align: left;
     padding-right: 10px;
   }
-  .singlePost .title_updel .post_title_inp {
+  .singlePost .singlePost_detail .title_updel .post_title_inp {
     width: 240px;
   }
-  .singlePost .post_text .authorName {
+  .singlePost .singlePost_detail .post_text .authorName {
     font-size: 18px;
     font-weight: 500;
   }
-  .singlePost .post_text .update_post {
+  .singlePost .singlePost_detail .post_text .update_post {
     margin-left: 47%;
   }
-  .singlePost .post_text .textDesc {
+  .singlePost .singlePost_detail .post_text .textDesc {
     line-height: 30px;
   }
-  .loader_img {
-    margin-left: 39%;
+  .singlePost .popular_post_sec {
+    width: 100%;
   }
 }/*# sourceMappingURL=singlePost.css.map */

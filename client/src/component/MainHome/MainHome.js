@@ -47,14 +47,17 @@ const MainHome = () => {
                         <h4 style={{ color: '#ff577ec5', letterSpacing: '2px' }}>MOST POPULAR</h4>
                         {loading ? (
                             <>
-                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
-                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
-                                <Skeleton height={100} style={{ marginBottom: '15px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '10px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '10px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '10px' }} />
+                                <Skeleton height={100} style={{ marginBottom: '10px' }} />
                             </>
                         ) : (
-                            popularPost.map((popularpost) => (
-                                <PopularPost key={popularpost._id} post={popularpost} />
-                            ))
+                            popularPost
+                                .slice(0, 4)
+                                .map((popularpost) => (
+                                    <PopularPost key={popularpost._id} post={popularpost} />
+                                ))
                         )}
                     </div>
                 </div>

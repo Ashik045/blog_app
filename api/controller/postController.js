@@ -102,6 +102,7 @@ const getAllPost = async (req, res) => {
     const username = req.query.user;
     const category = req.query.cat;
     const { popular } = req.query;
+    const { search } = req.query;
 
     try {
         let posts;
@@ -115,6 +116,8 @@ const getAllPost = async (req, res) => {
             });
         } else if (popular) {
             posts = await Post.find({ popular });
+        } else if (search) {
+            posts = await Post.find({ title: search });
         } else {
             posts = await Post.find().sort({ createdAt: -1 });
         }
