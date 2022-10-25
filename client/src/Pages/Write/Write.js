@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { BiImageAdd } from 'react-icons/bi';
+import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import loader from '../../Image/Rolling-1s-24px.png';
@@ -54,6 +55,16 @@ const Write = () => {
         }
     };
 
+    if (loading) {
+        return (
+            <>
+                <Skeleton height={500} />
+                <Skeleton height={70} />
+                <Skeleton count={5} />
+            </>
+        );
+    }
+
     return (
         <div className="write_section container">
             {photos && (
@@ -65,7 +76,7 @@ const Write = () => {
             <form className="writeForm" onSubmit={handleSubmit}>
                 <div className="writeFormGroup">
                     <label htmlFor="writeFile">
-                        <BiImageAdd size={35} className="upIcon" />
+                        <BiImageAdd size={35} className="upIcon" style={{ cursor: 'pointer' }} />
                     </label>
                     <input
                         onChange={(e) => setPhotos(e.target.files[0])}

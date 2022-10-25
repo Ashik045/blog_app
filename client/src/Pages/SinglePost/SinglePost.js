@@ -43,19 +43,20 @@ const SinglePost = () => {
         fetchData();
     }, [path]);
 
-    console.log(user);
-
     const handleUpdate = async () => {
         try {
+            setLoading(true);
             await axios.put(`https://journal11.herokuapp.com/api/posts/${singlPost._id}`, {
                 username: user.username,
                 title,
                 desc,
             });
 
+            setLoading(false);
             window.location.reload();
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     };
 
@@ -70,11 +71,23 @@ const SinglePost = () => {
         }
     };
 
+    // if (loading) {
+    //     return (
+    //         <>
+    //             <Skeleton height={500} />
+    //             <Skeleton height={70} />
+    //             <Skeleton count={5} />
+    //         </>
+    //     );
+    // }
+
     return (
         <div className="singlePost container mt-5">
             <div className="singlePost_detail">
                 {loading ? (
-                    <Skeleton height={500} />
+                    <>
+                        <Skeleton height={500} />
+                    </>
                 ) : singlPost.photo ? (
                     <img src={singlPost.photo} alt="noimg" />
                 ) : (
