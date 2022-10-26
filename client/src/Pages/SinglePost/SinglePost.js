@@ -52,34 +52,31 @@ const SinglePost = () => {
                 desc,
             });
 
-            setLoading(false);
             window.location.reload();
+            setUpdMode(false);
+            setLoading(false);
         } catch (error) {
             console.log(error);
             setLoading(false);
+            setUpdMode(false);
         }
     };
 
     const deletePost = async () => {
         try {
+            setLoading(true);
+
             await axios.delete(`https://journal11.herokuapp.com/api/posts/${singlPost._id}`, {
                 data: { username: user.username },
             });
+
+            setLoading(false);
             nevigate('/');
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     };
-
-    // if (loading) {
-    //     return (
-    //         <>
-    //             <Skeleton height={500} />
-    //             <Skeleton height={70} />
-    //             <Skeleton count={5} />
-    //         </>
-    //     );
-    // }
 
     return (
         <div className="singlePost container mt-5">
@@ -87,94 +84,99 @@ const SinglePost = () => {
                 {loading ? (
                     <>
                         <Skeleton height={500} />
+                        <Skeleton height={70} />
+                        <Skeleton count={5} />
                     </>
-                ) : singlPost.photo ? (
-                    <img src={singlPost.photo} alt="noimg" />
                 ) : (
-                    <img src={postt} alt="default-img" />
-                )}
+                    <>
+                        {singlPost.photo ? (
+                            <img src={singlPost.photo} alt="noimg" />
+                        ) : (
+                            <img src={postt} alt="default-img" />
+                        )}
 
-                <div className="title_updel">
-                    {updMode ? (
-                        <input
-                            className="post_title_inp"
-                            type="text"
-                            value={title}
-                            // eslint-disable-next-line jsx-a11y/no-autofocus
-                            autoFocus
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
-                    ) : loading ? (
-                        <Skeleton />
-                    ) : (
-                        <h3 className="post_title ">{singlPost.title}</h3>
-                    )}
-
-                    {singlPost.username === user?.username && (
-                        <div className="updel">
-                            {!updMode && (
-                                <MdBorderColor
-                                    // onClick={updatePost}
-                                    size={26}
-                                    color="#182747"
-                                    style={{ cursor: 'pointer' }}
-                                    className="updel_btnn"
-                                    onClick={() => setUpdMode(true)}
+                        <div className="title_updel">
+                            {updMode ? (
+                                <input
+                                    className="post_title_inp"
+                                    type="text"
+                                    value={title}
+                                    // eslint-disable-next-line jsx-a11y/no-autofocus
+                                    autoFocus
+                                    onChange={(e) => setTitle(e.target.value)}
                                 />
+                            ) : (
+                                <h3 className="post_title ">{singlPost.title}</h3>
                             )}
-                            <BiTrash
-                                size={26}
-                                color="#E94560"
-                                style={{ marginLeft: '20px', cursor: 'pointer' }}
-                                className="updel_btnn"
-                                onClick={deletePost}
-                            />
+
+                            {singlPost.username === user?.username && (
+                                <div className="updel">
+                                    {!updMode && (
+                                        <MdBorderColor
+                                            // onClick={updatePost}
+                                            size={26}
+                                            color="#182747"
+                                            style={{ cursor: 'pointer' }}
+                                            className="updel_btnn"
+                                            onClick={() => setUpdMode(true)}
+                                        />
+                                    )}
+                                    <BiTrash
+                                        size={26}
+                                        color="#E94560"
+                                        style={{ marginLeft: '20px', cursor: 'pointer' }}
+                                        className="updel_btnn"
+                                        onClick={deletePost}
+                                    />
+                                </div>
+                            )}
                         </div>
-                    )}
-                </div>
-                <div className="post_text">
-                    {loading ? (
-                        <Skeleton />
-                    ) : (
-                        <p>
-                            Author:{' '}
-                            <Link to={`/users/?user=${singlPost.username}`} className="authorName">
-                                <b>{singlPost.username}</b>
-                            </Link>{' '}
-                            <i className="text-muted">
-                                <small style={{ marginLeft: '20px', fontSize: '14px' }}>
-                                    {new Date(singlPost.createdAt).toDateString()}
-                                </small>
-                            </i>
-                        </p>
-                    )}
+                        <div className="post_text">
+                            <p>
+                                Author:{' '}
+                                <Link
+                                    to={`/users/?user=${singlPost.username}`}
+                                    className="authorName"
+                                >
+                                    <b>{singlPost.username}</b>
+                                </Link>{' '}
+                                <i className="text-muted">
+                                    <small style={{ marginLeft: '20px', fontSize: '14px' }}>
+                                        {new Date(singlPost.createdAt).toDateString()}
+                                    </small>
+                                </i>
+                            </p>
 
-                    {updMode ? (
-                        <textarea
-                            rows={8}
-                            type="text"
-                            value={desc}
-                            onChange={(e) => setDesc(e.target.value)}
-                            className="textDesc_inp"
-                        />
-                    ) : (
-                        <p className="textDesc">{singlPost.desc || <Skeleton count={6} />}</p>
-                    )}
+                            {updMode ? (
+                                <textarea
+                                    rows={8}
+                                    type="text"
+                                    value={desc}
+                                    onChange={(e) => setDesc(e.target.value)}
+                                    className="textDesc_inp"
+                                />
+                            ) : (
+                                <p className="textDesc">
+                                    {singlPost.desc || <Skeleton count={6} />}
+                                </p>
+                            )}
 
-                    {updMode && (
-                        <button
-                            type="submit"
-                            onClick={handleUpdate}
-                            style={{
-                                cursor: loading ? 'not-allowed' : 'pointer',
-                                position: 'relative',
-                            }}
-                            className="update_post"
-                        >
-                            Update Post
-                        </button>
-                    )}
-                </div>
+                            {updMode && (
+                                <button
+                                    type="submit"
+                                    onClick={handleUpdate}
+                                    style={{
+                                        cursor: loading ? 'not-allowed' : 'pointer',
+                                        position: 'relative',
+                                    }}
+                                    className="update_post"
+                                >
+                                    Update Post
+                                </button>
+                            )}
+                        </div>
+                    </>
+                )}
             </div>
 
             <div className="popular_post_sec">
