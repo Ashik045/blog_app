@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -12,8 +13,16 @@ import './navbar.css';
 const Navbar = () => {
     const [toggler, setToggler] = useState(false);
     const [inpVal, setInpVal] = useState('');
+    const [APIData, setAPIData] = useState([]);
+    const [filteredResults, setFilteredResults] = useState([]);
     const { user, dispatch } = useContext(Context);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/api/posts`).then((response) => {
+            setAPIData(response.data.message);
+        });
+    }, []);
 
     const handleClick = () => {
         navigate('/login');
@@ -35,9 +44,24 @@ const Navbar = () => {
         setInpVal(e.target.value);
     };
 
+    console.log(APIData);
+    console.log(filteredResults);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inpVal);
+        setInpVal(e.target[0].value);
+        if (inpVal !== '') {
+            // eslint-disable-next-line no-unused-vars
+            const filterData = APIData.filter((item) =>
+                Object.values(item).join('').toLowerCase().includes(inpVal.toLowerCase())
+            );
+
+            setFilteredResults(filterData);
+            console.log(filterData);
+        } else {
+            setFilteredResults(APIData);
+        }
     };
 
     return (
