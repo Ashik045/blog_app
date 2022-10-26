@@ -41,7 +41,7 @@ const Write = () => {
             };
 
             try {
-                const res = await axios.post('https://journal11.herokuapp.com/api/posts', newPost);
+                const res = await axios.post('https://weblog.up.railway.app/api/posts', newPost);
                 // eslint-disable-next-line no-underscore-dangle
                 nevigate(`/post/${res.data.message._id}`);
             } catch (error) {
@@ -57,11 +57,11 @@ const Write = () => {
 
     if (loading) {
         return (
-            <>
+            <div style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto' }}>
                 <Skeleton height={500} />
                 <Skeleton height={70} />
                 <Skeleton count={5} />
-            </>
+            </div>
         );
     }
 

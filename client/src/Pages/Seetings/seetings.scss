@@ -42,12 +42,13 @@
       .seeting_pp {
         margin-top: 50px;
         margin-bottom: 20px;
+        position: relative;
         .imgWrites {
           img {
-            height: 200px;
+            height: 250px;
             width: 250px;
-            border-radius: 10px;
-            object-fit: contain;
+            border-radius: 50%;
+            object-fit: cover;
           }
         }
 
@@ -58,10 +59,18 @@
         }
 
         .upPP {
-          margin-top: 15px;
-          margin-left: 10%;
+          position: absolute;
+          top: 220px;
+          left: 100px;
           margin-bottom: 15px;
           cursor: pointer;
+          padding: 7px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          background-color: rgb(175, 173, 173);
+          border-radius: 50%;
         }
       }
 

@@ -15,7 +15,7 @@ const MyPosts = () => {
     useEffect(() => {
         const data = async () => {
             setLoading(true);
-            const res = await axios.get(`https://journal11.herokuapp.com/api/posts/${search}`);
+            const res = await axios.get(`https://weblog.up.railway.app/api/posts/${search}`);
             setPost(res.data.message);
             setLoading(false);
         };

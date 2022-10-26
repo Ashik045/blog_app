@@ -12,7 +12,7 @@ import './login.css';
 
 const Login = () => {
     const [values, setValues] = useState({
-        email: '',
+        username: '',
         password: '',
     });
     const [authErr, setAuthErr] = useState(false);
@@ -21,12 +21,12 @@ const Login = () => {
     const inputs = [
         {
             id: 1,
-            label: 'Email',
-            name: 'email',
-            placeholder: 'example@gmail.com',
-            type: 'email',
+            label: 'Username',
+            name: 'username',
+            placeholder: 'Username',
+            type: 'text',
             required: true,
-            errMsg: 'Email should be a valid email address!',
+            errMsg: 'Username is required!',
         },
         {
             id: 2,
@@ -64,8 +64,8 @@ const Login = () => {
 
         try {
             dispatch({ type: 'LOGIN_START' });
-            const res = await axios.post('https://journal11.herokuapp.com/api/auth/login', {
-                email: values.email,
+            const res = await axios.post('https://weblog.up.railway.app/api/auth/login', {
+                username: values.username,
                 password: values.password,
             });
             dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.message });

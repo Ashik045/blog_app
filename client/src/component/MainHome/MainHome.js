@@ -21,8 +21,8 @@ const MainHome = () => {
         const fetchData = async () => {
             setLoading(true);
 
-            const res = await axios.get(`https://journal11.herokuapp.com/api/posts`);
-            const res2 = await axios.get(`http://localhost:5000/api/posts?popular=true`);
+            const res = await axios.get(`https://weblog.up.railway.app/api/posts`);
+            const res2 = await axios.get(`https://weblog.up.railway.app/api/posts?popular=true`);
             setPost(res.data.message);
             setPopularPost(res2.data.message);
             setLoading(false);

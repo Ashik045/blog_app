@@ -123,7 +123,7 @@ const Navbar = () => {
                                 </NavLink>
                                 <NavLink to="/seetings">
                                     <a onClick={() => setToggler(false)} href="">
-                                        User
+                                        Profile
                                     </a>
                                 </NavLink>
                                 <NavLink to="/write">

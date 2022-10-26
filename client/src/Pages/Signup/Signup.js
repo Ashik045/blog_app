@@ -73,36 +73,55 @@ const Signup = () => {
         try {
             setLoading(true);
 
-            const data = new FormData();
-            data.append('file', profilePhoto);
-            data.append('upload_preset', 'uploads');
+            if (profilePhoto) {
+                const data = new FormData();
+                data.append('file', profilePhoto);
+                data.append('upload_preset', 'uploads');
 
-            const uploadRes = await axios.post(
-                'https://api.cloudinary.com/v1_1/dqctmbhde/image/upload',
-                data
-            );
+                const uploadRes = await axios.post(
+                    'https://api.cloudinary.com/v1_1/dqctmbhde/image/upload',
+                    data
+                );
 
-            const { url } = uploadRes.data;
-            const newUser = {
-                username: values.username,
-                email: values.email,
-                password: values.password,
-                profilepic: url,
-            };
+                const { url } = uploadRes.data;
+                const newUser = {
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                    profilepic: url,
+                };
 
-            try {
-                await axios.post('https://journal11.herokuapp.com/api/auth/register', newUser);
-                nevigate('/login');
+                try {
+                    await axios.post('https://weblog.up.railway.app/api/auth/register', newUser);
+                    nevigate('/login');
 
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
+                    setLoading(false);
+                } catch (error) {
+                    setLoading(false);
+                    setAuthErr(true);
+                    setValues({
+                        repassword: '',
+                    });
+                }
+            } else {
+                const newUser = {
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                };
 
-                setAuthErr(true);
-                setValues({
-                    password: '',
-                    repassword: '',
-                });
+                try {
+                    await axios.post('https://weblog.up.railway.app/api/auth/register', newUser);
+                    nevigate('/login');
+
+                    setLoading(false);
+                } catch (error) {
+                    setLoading(false);
+                    setAuthErr(true);
+                    setValues({
+                        repassword: '',
+                    });
+                }
             }
         } catch (error) {
             setLoading(false);
@@ -110,7 +129,6 @@ const Signup = () => {
             setAuthErr(true);
             console.log(error);
             setValues({
-                password: '',
                 repassword: '',
             });
         }
@@ -138,6 +156,7 @@ const Signup = () => {
                                 type="file"
                                 onChange={(e) => setProfilePhoto(e.target.files[0])}
                                 className="mt-2 file_inp"
+                                style={{ cursor: 'pointer' }}
                             />
                             <button
                                 type="submit"

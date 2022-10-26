@@ -101,7 +101,7 @@ const Seetings = () => {
 
             try {
                 const res = await axios.put(
-                    `https://journal11.herokuapp.com/api/users/${user._id}`,
+                    `https://weblog.up.railway.app/api/users/${user._id}`,
                     updatedUser
                 );
                 dispatch({ type: 'UPDATE_SUCCESS', payload: res.data.message });
@@ -148,11 +148,12 @@ const Seetings = () => {
 
                 <form className="seeting_form" onSubmit={handleUpdate}>
                     <div className="seeting_pp">
-                        {photo && (
-                            <div className="imgWrites">
-                                <img src={URL.createObjectURL(photo)} alt="upload-img" />
-                            </div>
-                        )}
+                        <div className="imgWrites">
+                            <img
+                                src={photo ? URL.createObjectURL(photo) : user.profilepic}
+                                alt="upload-img"
+                            />
+                        </div>
 
                         <label htmlFor="uploadPP" className="upPP">
                             <BiImageAdd size={29} />

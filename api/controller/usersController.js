@@ -9,30 +9,39 @@ const Post = require('../models/post');
 
 // update the user
 const usersControllerUpd = async (req, res) => {
-    if (req.body.userId === req.params.id) {
-        if (req.body.password) {
-            req.body.password = await bcrypt.hash(req.body.password, 10);
-        }
-        try {
-            // update the  user by findByIdAndUpdate method
-            const ress = await User.findByIdAndUpdate(
-                req.params.id,
-                {
-                    $set: req.body,
-                },
-                { new: true }
-            );
-            res.status(200).json({
-                message: ress,
-            });
-        } catch (err) {
+    const user = req.body.username;
+    const isUsername = await User.findOne({ username: user });
+
+    if (!isUsername) {
+        if (req.body.userId === req.params.id) {
+            if (req.body.password) {
+                req.body.password = await bcrypt.hash(req.body.password, 10);
+            }
+            try {
+                // update the  user by findByIdAndUpdate method
+                const ress = await User.findByIdAndUpdate(
+                    req.params.id,
+                    {
+                        $set: req.body,
+                    },
+                    { new: true }
+                );
+                res.status(200).json({
+                    message: ress,
+                });
+            } catch (err) {
+                res.status(500).json({
+                    error: 'can not find user!',
+                });
+            }
+        } else {
             res.status(500).json({
-                error: 'can not find user!',
+                error: 'You can update only your account',
             });
         }
     } else {
         res.status(500).json({
-            error: 'You can update only your account',
+            error: 'Username already in use!',
         });
     }
 };

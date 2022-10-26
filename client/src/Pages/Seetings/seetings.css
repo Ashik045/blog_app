@@ -39,13 +39,14 @@
 .settings .seeting_left .seeting_form .seeting_pp {
   margin-top: 50px;
   margin-bottom: 20px;
+  position: relative;
 }
 .settings .seeting_left .seeting_form .seeting_pp .imgWrites img {
-  height: 200px;
+  height: 250px;
   width: 250px;
-  border-radius: 10px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .settings .seeting_left .seeting_form .seeting_pp .userProPic {
   width: 200px;
@@ -54,10 +55,18 @@
      object-fit: cover;
 }
 .settings .seeting_left .seeting_form .seeting_pp .upPP {
-  margin-top: 15px;
-  margin-left: 10%;
+  position: absolute;
+  top: 220px;
+  left: 100px;
   margin-bottom: 15px;
   cursor: pointer;
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(175, 173, 173);
+  border-radius: 50%;
 }
 .settings .seeting_left .seeting_form .submit_btn {
   margin-top: 10px;
