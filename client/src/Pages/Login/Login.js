@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 import Input from '../../component/Input/Input';
 import { Context } from '../../Context/Context';
 import blob from '../../Image/blob.svg';
-import loader from '../../Image/Rolling-1s-24px.png';
 import './login.css';
 
 const Login = () => {
@@ -103,23 +102,12 @@ const Login = () => {
                             type="submit"
                             className="mb-2 submit_btn"
                             disabled={isFetching}
-                            style={{ position: 'relative' }}
+                            style={{
+                                position: 'relative',
+                                cursor: isFetching ? 'not-allowed' : 'pointer',
+                            }}
                         >
-                            {isFetching ? (
-                                <img
-                                    src={loader}
-                                    alt="loading.."
-                                    style={{
-                                        position: 'absolute',
-                                        left: '40%',
-                                        top: '23%',
-                                        height: '25px',
-                                        width: '25px',
-                                    }}
-                                />
-                            ) : (
-                                'Log In'
-                            )}
+                            {isFetching ? 'Loading..' : 'Log In'}
                         </button>
                         {authErr && (
                             <p style={{ margin: '5px 0' }} className="error">

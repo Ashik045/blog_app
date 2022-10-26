@@ -57,7 +57,7 @@
 .settings .seeting_left .seeting_form .seeting_pp .upPP {
   position: absolute;
   top: 220px;
-  left: 100px;
+  left: 105px;
   margin-bottom: 15px;
   cursor: pointer;
   padding: 7px;
@@ -65,7 +65,7 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: rgb(175, 173, 173);
+  background-color: rgba(117, 116, 116, 0.719);
   border-radius: 50%;
 }
 .settings .seeting_left .seeting_form .submit_btn {

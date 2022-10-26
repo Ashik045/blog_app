@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../component/Input/Input';
 import blob from '../../Image/blob.svg';
-import loader from '../../Image/Rolling-1s-24px.png';
 import './signup.css';
 
 const Signup = () => {
@@ -16,6 +15,7 @@ const Signup = () => {
     });
     const [profilePhoto, setProfilePhoto] = useState('');
     const [authErr, setAuthErr] = useState(false);
+    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     const inputs = [
@@ -96,9 +96,10 @@ const Signup = () => {
                     nevigate('/login');
 
                     setLoading(false);
-                } catch (error) {
+                } catch (err) {
                     setLoading(false);
                     setAuthErr(true);
+                    setError(err);
                     setValues({
                         repassword: '',
                     });
@@ -115,17 +116,18 @@ const Signup = () => {
                     nevigate('/login');
 
                     setLoading(false);
-                } catch (error) {
+                } catch (err) {
                     setLoading(false);
                     setAuthErr(true);
+                    setError(err);
                     setValues({
                         repassword: '',
                     });
                 }
             }
-        } catch (error) {
+        } catch (err) {
             setLoading(false);
-
+            setError(err);
             setAuthErr(true);
             console.log(error);
             setValues({
@@ -162,28 +164,17 @@ const Signup = () => {
                                 type="submit"
                                 className="mb-2 submit_btn"
                                 disabled={loading}
-                                style={{ position: 'relative' }}
+                                style={{
+                                    position: 'relative',
+                                    cursor: loading ? 'not-allowed' : 'pointer',
+                                }}
                             >
-                                {loading ? (
-                                    <img
-                                        src={loader}
-                                        alt="loading.."
-                                        style={{
-                                            position: 'absolute',
-                                            left: '40%',
-                                            top: '23%',
-                                            height: '25px',
-                                            width: '25px',
-                                        }}
-                                    />
-                                ) : (
-                                    'Sign Up'
-                                )}
+                                {loading ? 'Loading..' : 'Sign Up'}
                             </button>
 
                             {authErr && (
                                 <p style={{ margin: '5px 0', color: 'red' }} className="error">
-                                    Authentication failed!
+                                    {error ? `Username already in use!` : 'Authentication failed!'}
                                 </p>
                             )}
 

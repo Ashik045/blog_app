@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -10,19 +11,20 @@ import Swal from 'sweetalert2';
 import Input from '../../component/Input/Input';
 import SideBar from '../../component/Sidebar/Sidebar';
 import { Context } from '../../Context/Context';
-import loader from '../../Image/Rolling-1s-24px.png';
+import nophoto from '../../Image/no-photo.png';
 import './seetings.css';
 
 const Seetings = () => {
     const { user, dispatch, isFetching } = useContext(Context);
     const [photo, setPhoto] = useState('');
+    const [errorr, setErrorr] = useState('');
+
     const [values, setValues] = useState({
         username: '',
         email: '',
         password: '',
     });
     const [authErr, setAuthErr] = useState(false);
-    const [fileErr, setFileErr] = useState(false);
 
     const inputs = [
         {
@@ -80,45 +82,77 @@ const Seetings = () => {
 
         try {
             dispatch({ type: 'UPDATE_START' });
-            const data = new FormData();
-            data.append('file', photo);
-            data.append('upload_preset', 'uploads');
 
-            const uploadRes = await axios.post(
-                'https://api.cloudinary.com/v1_1/dqctmbhde/image/upload',
-                data
-            );
+            if (photo) {
+                const data = new FormData();
+                data.append('file', photo);
+                data.append('upload_preset', 'uploads');
 
-            const { url } = uploadRes.data;
-
-            const updatedUser = {
-                userId: user._id,
-                username: values.username,
-                email: values.email,
-                password: values.password,
-                profilepic: url,
-            };
-
-            try {
-                const res = await axios.put(
-                    `https://weblog.up.railway.app/api/users/${user._id}`,
-                    updatedUser
+                const uploadRes = await axios.post(
+                    'https://api.cloudinary.com/v1_1/dqctmbhde/image/upload',
+                    data
                 );
-                dispatch({ type: 'UPDATE_SUCCESS', payload: res.data.message });
 
-                // nevigate('/seetings');
+                const { url } = uploadRes.data;
 
-                window.location.reload();
-                Toast.fire({
-                    icon: 'success',
-                    title: 'User updated successfully',
-                });
-            } catch (error) {
-                dispatch({ type: 'UPDATE_FAILURE' });
-                setAuthErr(true);
+                const updatedUser = {
+                    userId: user._id,
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                    profilepic: url,
+                };
+
+                try {
+                    const res = await axios.put(
+                        `https://weblog.up.railway.app/api/users/${user._id}`,
+                        updatedUser
+                    );
+                    dispatch({ type: 'UPDATE_SUCCESS', payload: res.data.message });
+
+                    // nevigate('/seetings');
+
+                    window.location.reload();
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'User updated successfully',
+                    });
+                } catch (error) {
+                    dispatch({ type: 'UPDATE_FAILURE' });
+                    setErrorr(error);
+                    setAuthErr(true);
+                }
+            } else {
+                const updatedUser = {
+                    userId: user._id,
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                };
+
+                try {
+                    const res = await axios.put(
+                        `https://weblog.up.railway.app/api/users/${user._id}`,
+                        updatedUser
+                    );
+                    dispatch({ type: 'UPDATE_SUCCESS', payload: res.data.message });
+
+                    // nevigate('/seetings');
+
+                    window.location.reload();
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'User updated successfully',
+                    });
+                } catch (error) {
+                    dispatch({ type: 'UPDATE_FAILURE' });
+                    setAuthErr(true);
+                    setErrorr(error);
+                }
             }
         } catch (error) {
-            setFileErr(true);
+            setAuthErr(true);
+            setErrorr(error);
             dispatch({ type: 'UPDATE_FAILURE' });
         }
     };
@@ -150,7 +184,13 @@ const Seetings = () => {
                     <div className="seeting_pp">
                         <div className="imgWrites">
                             <img
-                                src={photo ? URL.createObjectURL(photo) : user.profilepic}
+                                src={
+                                    photo
+                                        ? URL.createObjectURL(photo)
+                                        : user.profilepic
+                                        ? user.profilepic
+                                        : nophoto
+                                }
                                 alt="upload-img"
                             />
                         </div>
@@ -175,38 +215,23 @@ const Seetings = () => {
                         />
                     ))}
 
-                    {fileErr && (
+                    {authErr && (
                         <p style={{ margin: '10px 0px', color: 'red' }} className="error">
-                            Please select a profilepic.
+                            {errorr ? 'Username already in use!' : `Can not update the user!`}
                         </p>
                     )}
+
                     <button
                         type="submit"
                         className="mb-2 submit_btn"
                         disabled={isFetching}
-                        style={{ position: 'relative' }}
+                        style={{
+                            position: 'relative',
+                            cursor: isFetching ? 'not-allowed' : 'pointer',
+                        }}
                     >
-                        {isFetching ? (
-                            <img
-                                src={loader}
-                                alt="loading.."
-                                style={{
-                                    position: 'absolute',
-                                    left: '40%',
-                                    top: '23%',
-                                    height: '25px',
-                                    width: '25px',
-                                }}
-                            />
-                        ) : (
-                            'Update Profile'
-                        )}
+                        {isFetching ? 'Updating..' : 'Update Profile'}
                     </button>
-                    {authErr && (
-                        <p style={{ margin: '10px 0px', color: 'red' }} className="error">
-                            Can&apos;t update the user!
-                        </p>
-                    )}
                 </form>
             </div>
 
