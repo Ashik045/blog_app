@@ -21,7 +21,6 @@ const MainHome = () => {
     console.log(`home page ${input}`);
     console.log(post);
     console.log(filteredPost);
-    console.log(isFetching);
 
     // fetch data
     useEffect(() => {
@@ -39,12 +38,11 @@ const MainHome = () => {
     }, []);
 
     useEffect(() => {
-        dispatchh({ type: 'SEARCH_START' });
-
-        if (input !== '') {
+        if (input?.length > 0) {
+            dispatchh({ type: 'SEARCH_START' });
             setLoading(true);
             const filterData = post.filter((item) =>
-                Object.values(item.title).join('').toLowerCase().includes(input.toLowerCase())
+                Object.values(item.title).join('').toLowerCase().includes(input?.toLowerCase())
             );
             setFilteredPost(filterData);
             dispatchh({ type: 'SEARCH_END', payload: input });
@@ -53,6 +51,9 @@ const MainHome = () => {
         } else {
             setFilteredPost(post);
             dispatchh({ type: 'SEARCH_CLEAR' });
+        }
+        if (input?.length === 0) {
+            setFilteredPost(post);
         }
     }, [input, post, dispatchh]);
 

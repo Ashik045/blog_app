@@ -5,7 +5,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaTimes } from 'react-icons/fa';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import noPhoto from '../../Image/no-photo.png';
@@ -47,15 +47,11 @@ const Navbar = () => {
         setInpVal(e.target.value);
     };
 
-    // console.log(APIData);
-    // console.log(filteredResults);
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inpVal);
-        setInpVal(e.target[0].value);
+        setInpVal(e.target.value);
 
-        if (inpVal !== '') {
+        if (inpVal?.length > 0) {
             dispatchh({ type: 'SEARCH_START' });
             // eslint-disable-next-line no-unused-vars
             const filterData = APIData.filter((item) =>
@@ -70,6 +66,11 @@ const Navbar = () => {
             setFilteredResults(APIData);
             dispatchh({ type: 'SEARCH_CLEAR' });
         }
+    };
+
+    const handleClose = () => {
+        setInpVal('');
+        dispatchh({ type: 'SEARCH_CLEAR' });
     };
 
     return (
@@ -90,6 +91,9 @@ const Navbar = () => {
                                 value={inpVal}
                                 onChange={handleChange}
                             />
+                            {inpVal?.length !== 0 && (
+                                <FaTimes className="search_icon_close" onClick={handleClose} />
+                            )}
                             <button type="submit">
                                 <FaSearch className="search_icon" />
                             </button>
@@ -123,9 +127,6 @@ const Navbar = () => {
                                     src={user.profilepic ? user.profilepic : noPhoto}
                                     alt=""
                                 />
-                                <button type="button" onClick={logOut}>
-                                    Log out
-                                </button>
                             </>
                         ) : (
                             <button type="button" onClick={handleClick}>
