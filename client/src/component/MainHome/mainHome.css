@@ -8,6 +8,13 @@
   grid-gap: 25px;
   justify-content: space-between;
 }
+.main_home .main_body .home_content .left .loading {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
 
 @media screen and (max-width: 992px) {
   .main_home .main_body .home_content {
@@ -16,5 +23,14 @@
   }
   .main_home .main_body .home_content .right {
     display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .main_home .main_body .home_content .left .loading {
+    display: grid;
+    grid-template-columns: 90%;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
   }
 }/*# sourceMappingURL=mainHome.css.map */

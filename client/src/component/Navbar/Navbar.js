@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -8,6 +9,7 @@ import { FaSearch } from 'react-icons/fa';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/Context';
 import noPhoto from '../../Image/no-photo.png';
+import { InpContext } from '../../InpContext/Context';
 import './navbar.css';
 
 const Navbar = () => {
@@ -16,6 +18,7 @@ const Navbar = () => {
     const [APIData, setAPIData] = useState([]);
     const [filteredResults, setFilteredResults] = useState([]);
     const { user, dispatch } = useContext(Context);
+    const { input, dispatchh } = useContext(InpContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -44,23 +47,28 @@ const Navbar = () => {
         setInpVal(e.target.value);
     };
 
-    console.log(APIData);
-    console.log(filteredResults);
+    // console.log(APIData);
+    // console.log(filteredResults);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inpVal);
         setInpVal(e.target[0].value);
+
         if (inpVal !== '') {
+            dispatchh({ type: 'SEARCH_START' });
             // eslint-disable-next-line no-unused-vars
             const filterData = APIData.filter((item) =>
-                Object.values(item).join('').toLowerCase().includes(inpVal.toLowerCase())
+                Object.values(item.title).join('').toLowerCase().includes(inpVal.toLowerCase())
             );
 
             setFilteredResults(filterData);
-            console.log(filterData);
+            dispatchh({ type: 'SEARCH_END', payload: inpVal });
+
+            // console.log(filterData);
         } else {
             setFilteredResults(APIData);
+            dispatchh({ type: 'SEARCH_CLEAR' });
         }
     };
 

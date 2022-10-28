@@ -1,10 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import loader from '../../Image/Spinner-1s-71px.png';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { InpContext } from '../../InpContext/Context';
 import Header from '../Header/Header';
 import PopularPost from '../PopularPost/PopularPost';
 import Posts from '../Posts/Posts';
@@ -13,8 +14,14 @@ import './mainHome.css';
 
 const MainHome = () => {
     const [post, setPost] = useState([]);
+    const [filteredPost, setFilteredPost] = useState([]);
     const [popularPost, setPopularPost] = useState([]);
     const [loading, setLoading] = useState(false);
+    const { input, isFetching, dispatchh } = useContext(InpContext);
+    console.log(`home page ${input}`);
+    console.log(post);
+    console.log(filteredPost);
+    console.log(isFetching);
 
     // fetch data
     useEffect(() => {
@@ -31,6 +38,24 @@ const MainHome = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        dispatchh({ type: 'SEARCH_START' });
+
+        if (input !== '') {
+            setLoading(true);
+            const filterData = post.filter((item) =>
+                Object.values(item.title).join('').toLowerCase().includes(input.toLowerCase())
+            );
+            setFilteredPost(filterData);
+            dispatchh({ type: 'SEARCH_END', payload: input });
+
+            setLoading(false);
+        } else {
+            setFilteredPost(post);
+            dispatchh({ type: 'SEARCH_CLEAR' });
+        }
+    }, [input, post, dispatchh]);
+
     return (
         <div className="main_home">
             <Header />
@@ -40,7 +65,47 @@ const MainHome = () => {
 
                 <div className="home_content">
                     <div className="left">
-                        <Posts posts={post} loading={loading} />
+                        {(loading || isFetching) && (
+                            <div className="loading">
+                                <div>
+                                    <Skeleton height={250} />
+                                    <Skeleton
+                                        height={40}
+                                        style={{ marginTop: '10px', marginBottom: '10px' }}
+                                    />
+                                    <Skeleton count={4} />
+                                </div>
+                                <div>
+                                    <Skeleton height={250} />
+                                    <Skeleton
+                                        height={40}
+                                        style={{ marginTop: '10px', marginBottom: '10px' }}
+                                    />
+                                    <Skeleton count={4} />
+                                </div>
+                                <div>
+                                    <Skeleton height={250} />
+                                    <Skeleton
+                                        height={40}
+                                        style={{ marginTop: '10px', marginBottom: '10px' }}
+                                    />
+                                    <Skeleton count={4} />
+                                </div>
+                                <div>
+                                    <Skeleton height={250} />
+                                    <Skeleton
+                                        height={40}
+                                        style={{ marginTop: '10px', marginBottom: '10px' }}
+                                    />
+                                    <Skeleton count={4} />
+                                </div>
+                            </div>
+                        )}
+                        {post.length === 0 || filteredPost.length === 0 ? (
+                            <p style={{ textAlign: 'center' }}>No post found!</p>
+                        ) : (
+                            <Posts posts={filteredPost || post} loading={loading} />
+                        )}
                     </div>
 
                     <div className="right">

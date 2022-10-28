@@ -8,6 +8,16 @@
       grid-template-columns: 65% 33%;
       grid-gap: 25px;
       justify-content: space-between;
+
+      .left {
+        .loading {
+          display: grid;
+          grid-template-columns: 49% 49%;
+          grid-gap: 25px;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
   }
 }
@@ -20,6 +30,24 @@
         grid-template-columns: 100%;
         .right {
           display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main_home {
+    .main_body {
+      .home_content {
+        .left {
+          .loading {
+            display: grid;
+            grid-template-columns: 90%;
+            grid-gap: 15px;
+            justify-content: center;
+            align-items: center;
+          }
         }
       }
     }

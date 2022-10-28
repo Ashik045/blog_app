@@ -103,7 +103,6 @@ const getAllPost = async (req, res) => {
     const category = req.query.cat;
     const { popular } = req.query;
     const { search } = req.query;
-    console.log(search);
 
     try {
         let posts;
