@@ -44,6 +44,16 @@ const MyPosts = () => {
                         <Skeleton height={40} style={{ marginTop: '10px', marginBottom: '10px' }} />
                         <Skeleton count={4} />
                     </div>
+                    <div>
+                        <Skeleton height={250} />
+                        <Skeleton height={40} style={{ marginTop: '10px', marginBottom: '10px' }} />
+                        <Skeleton count={4} />
+                    </div>
+                    <div>
+                        <Skeleton height={250} />
+                        <Skeleton height={40} style={{ marginTop: '10px', marginBottom: '10px' }} />
+                        <Skeleton count={4} />
+                    </div>
                 </div>
             ) : (
                 <div className="posts">

@@ -1,10 +1,19 @@
-# journal
-Journal is similar to a social media application.
+# Weblog
 
-This application is fully responsive. I'm using CSS grid for responsiveness, SASS for design pattern, and SWEETALERT2 for some simple login, and logout alerts. I'm using Reactjs for the front-end. And for the back-end there are Nodejs with his Expressjs framework. For the database I'm using MongoDB. 
-There is both client-side and server-side validation in this application.
+Weblog can be compared to a social media platform
 
-After authentication authenticated users can post their travel stories and read others travel experiences. After creating a post user can update his post and also can delete the post.  Users also can update their profile(profile picture, username, email, password).
+Features:
 
+- User can Create / Read / Update / Delete their post.
+- Authenticated user can update his profile(profile picture, username, email, password).
+- Client side and server side validation.
+- Context api for state management.
+- Search Functionality.
+- Image Upload with Cloudinary.
 
-Live Project Link: https://journal1.netlify.app/
+Technologies & Tools:
+
+- Front-end: React.Js, SASS, CSS3, HTML5, SwiperJs, JavaScript, Sweetalert2, Axios, Cloudinary.
+- Back-end: Node.js, Express.js, MongoDB.
+
+Live Project Link: https://weblog00.vercel.app/

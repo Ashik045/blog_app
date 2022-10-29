@@ -23,6 +23,11 @@
       font-size: 17px;
       font-weight: bold;
       color: rgb(29, 28, 28);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-line-orient: vertical;
 
       &:hover {
         color: #ff577f;

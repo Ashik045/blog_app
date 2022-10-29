@@ -52,6 +52,7 @@ const Navbar = () => {
         setInpVal(e.target.value);
 
         if (inpVal?.length > 0) {
+            navigate('/');
             dispatchh({ type: 'SEARCH_START' });
             // eslint-disable-next-line no-unused-vars
             const filterData = APIData.filter((item) =>

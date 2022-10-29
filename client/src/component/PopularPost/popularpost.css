@@ -24,6 +24,11 @@
   font-size: 17px;
   font-weight: bold;
   color: rgb(29, 28, 28);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-line-orient: vertical;
 }
 .popular_post .post_txt .title:hover {
   color: #ff577f;

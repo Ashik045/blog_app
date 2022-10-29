@@ -17,10 +17,8 @@ const MainHome = () => {
     const [filteredPost, setFilteredPost] = useState([]);
     const [popularPost, setPopularPost] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [loading2, setLoading2] = useState(false);
     const { input, isFetching, dispatchh } = useContext(InpContext);
-    console.log(`home page ${input}`);
-    console.log(post);
-    console.log(filteredPost);
 
     // fetch data
     useEffect(() => {
@@ -38,23 +36,29 @@ const MainHome = () => {
     }, []);
 
     useEffect(() => {
-        if (input?.length > 0) {
-            dispatchh({ type: 'SEARCH_START' });
-            setLoading(true);
-            const filterData = post.filter((item) =>
-                Object.values(item.title).join('').toLowerCase().includes(input?.toLowerCase())
-            );
-            setFilteredPost(filterData);
-            dispatchh({ type: 'SEARCH_END', payload: input });
+        const fetchData2 = () => {
+            if (input?.length > 0) {
+                setLoading2(true);
+                dispatchh({ type: 'SEARCH_START' });
+                const filterData = post.filter((item) =>
+                    Object.values(item.title).join('').toLowerCase().includes(input?.toLowerCase())
+                );
+                setFilteredPost(filterData);
+                dispatchh({ type: 'SEARCH_END', payload: input });
 
-            setLoading(false);
-        } else {
-            setFilteredPost(post);
-            dispatchh({ type: 'SEARCH_CLEAR' });
-        }
-        if (input?.length === 0) {
-            setFilteredPost(post);
-        }
+                setLoading2(false);
+            } else {
+                setFilteredPost(post);
+
+                dispatchh({ type: 'SEARCH_CLEAR' });
+            }
+
+            if (input?.length === 0) {
+                setFilteredPost(post);
+            }
+        };
+
+        fetchData2();
     }, [input, post, dispatchh]);
 
     return (
@@ -66,8 +70,16 @@ const MainHome = () => {
 
                 <div className="home_content">
                     <div className="left">
-                        {(loading || isFetching) && (
+                        {(loading || loading2) && (
                             <div className="loading">
+                                <div>
+                                    <Skeleton height={250} />
+                                    <Skeleton
+                                        height={40}
+                                        style={{ marginTop: '10px', marginBottom: '10px' }}
+                                    />
+                                    <Skeleton count={4} />
+                                </div>
                                 <div>
                                     <Skeleton height={250} />
                                     <Skeleton
