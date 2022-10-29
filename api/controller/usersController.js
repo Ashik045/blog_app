@@ -74,7 +74,7 @@ const usersControllerDel = async (req, res) => {
         }
     } else {
         res.status(500).json({
-            error: 'You can delete only your account',
+            error: 'You can delete only your account!',
         });
     }
 };
@@ -95,8 +95,27 @@ const getUser = async (req, res) => {
     }
 };
 
+// get posts by userName
+const getUserByUserName = async (req, res) => {
+    const username = req.query.user;
+    try {
+        const user = await User.findOne({ username });
+        const { password, ...others } = user;
+        console.log(user);
+
+        res.status(200).json({
+            message: others,
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: 'can not find user!!!',
+        });
+    }
+};
+
 module.exports = {
     usersControllerUpd,
     usersControllerDel,
     getUser,
+    getUserByUserName,
 };

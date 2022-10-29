@@ -6,6 +6,7 @@ const {
     usersControllerUpd,
     usersControllerDel,
     getUser,
+    getUserByUserName,
 } = require('../controller/usersController');
 
 const router = express.Router();
@@ -18,5 +19,8 @@ router.delete('/:id', usersControllerDel);
 
 // get one user by id
 router.get('/:id', getUser);
+
+// get posts by userName
+router.get('/:user', getUserByUserName);
 
 module.exports = router;
