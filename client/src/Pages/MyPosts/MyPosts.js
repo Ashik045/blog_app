@@ -12,6 +12,7 @@ const MyPosts = () => {
     const { search } = useLocation();
     const [loading, setLoading] = useState(false);
 
+    // fetch all posts
     useEffect(() => {
         const data = async () => {
             setLoading(true);

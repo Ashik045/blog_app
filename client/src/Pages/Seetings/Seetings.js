@@ -26,6 +26,7 @@ const Seetings = () => {
     });
     const [authErr, setAuthErr] = useState(false);
 
+    // input details with validation errors
     const inputs = [
         {
             id: 1,
