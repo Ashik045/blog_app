@@ -40,7 +40,10 @@ const Write = () => {
             };
 
             try {
-                const res = await axios.post('https://weblog.up.railway.app/api/posts', newPost);
+                const res = await axios.post(
+                    'https://weblog-backend.onrender.com/api/posts',
+                    newPost
+                );
                 // eslint-disable-next-line no-underscore-dangle
                 nevigate(`/post/${res.data.message._id}`);
             } catch (error) {

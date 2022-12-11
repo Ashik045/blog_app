@@ -30,8 +30,10 @@ const SinglePost = () => {
         const fetchData = async () => {
             setLoading(true);
 
-            const res = await axios.get(`https://weblog.up.railway.app/api/posts/${path}`);
-            const res2 = await axios.get(`https://weblog.up.railway.app/api/posts?popular=true`);
+            const res = await axios.get(`https://weblog-backend.onrender.com/api/posts/${path}`);
+            const res2 = await axios.get(
+                `https://weblog-backend.onrender.com/api/posts?popular=true`
+            );
 
             setSinglePost(res.data.message);
             setPopularPost(res2.data.message);
@@ -46,7 +48,7 @@ const SinglePost = () => {
     const handleUpdate = async () => {
         try {
             setLoading(true);
-            await axios.put(`https://weblog.up.railway.app/api/posts/${singlPost._id}`, {
+            await axios.put(`https://weblog-backend.onrender.com/api/posts/${singlPost._id}`, {
                 username: user.username,
                 title,
                 desc,
@@ -66,7 +68,7 @@ const SinglePost = () => {
         try {
             setLoading(true);
 
-            await axios.delete(`https://weblog.up.railway.app/api/posts/${singlPost._id}`, {
+            await axios.delete(`https://weblog-backend.onrender.com/api/posts/${singlPost._id}`, {
                 data: { username: user.username },
             });
 

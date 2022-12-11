@@ -25,8 +25,10 @@ const MainHome = () => {
         const fetchData = async () => {
             setLoading(true);
 
-            const res = await axios.get(`https://weblog.up.railway.app/api/posts`);
-            const res2 = await axios.get(`https://weblog.up.railway.app/api/posts?popular=true`);
+            const res = await axios.get(`https://weblog-backend.onrender.com/api/posts`);
+            const res2 = await axios.get(
+                `https://weblog-backend.onrender.com/api/posts?popular=true`
+            );
             setPost(res.data.message);
             setPopularPost(res2.data.message);
             setLoading(false);

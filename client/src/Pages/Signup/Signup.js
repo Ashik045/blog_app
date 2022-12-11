@@ -92,7 +92,10 @@ const Signup = () => {
                 };
 
                 try {
-                    await axios.post('https://weblog.up.railway.app/api/auth/register', newUser);
+                    await axios.post(
+                        'https://weblog-backend.onrender.com/api/auth/register',
+                        newUser
+                    );
                     nevigate('/login');
 
                     setLoading(false);
@@ -112,7 +115,10 @@ const Signup = () => {
                 };
 
                 try {
-                    await axios.post('https://weblog.up.railway.app/api/auth/register', newUser);
+                    await axios.post(
+                        'https://weblog-backend.onrender.com/api/auth/register',
+                        newUser
+                    );
                     nevigate('/login');
 
                     setLoading(false);

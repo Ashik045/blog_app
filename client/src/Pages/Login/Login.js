@@ -63,7 +63,7 @@ const Login = () => {
 
         try {
             dispatch({ type: 'LOGIN_START' });
-            const res = await axios.post('https://weblog.up.railway.app/api/auth/login', {
+            const res = await axios.post('https://weblog-backend.onrender.com/api/auth/login', {
                 username: values.username,
                 password: values.password,
             });

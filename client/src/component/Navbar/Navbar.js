@@ -22,7 +22,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/posts`).then((response) => {
+        axios.get(`https://weblog-backend.onrender.com/api/posts`).then((response) => {
             setAPIData(response.data.message);
         });
     }, []);

@@ -16,7 +16,7 @@ const MyPosts = () => {
     useEffect(() => {
         const data = async () => {
             setLoading(true);
-            const res = await axios.get(`https://weblog.up.railway.app/api/posts/${search}`);
+            const res = await axios.get(`https://weblog-backend.onrender.com/api/posts/${search}`);
             setPost(res.data.message);
             setLoading(false);
         };
