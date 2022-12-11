@@ -18,7 +18,7 @@ function App() {
         <BrowserRouter>
             <Navbar />
 
-            {/* routing sec */}
+            {/* routing section */}
             <Routes>
                 <Route path="/" element={<HomePage />} />
 
