@@ -1,6 +1,6 @@
 # Weblog
 
-Weblog can be compared to a social media platform
+Weblog can be compared to a social media application
 
 Features:
 
