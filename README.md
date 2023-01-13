@@ -6,7 +6,7 @@ Features:
 
 - User can Create / Read / Update / Delete their post.
 - Authenticated user can update his profile(profile picture, username, email, password).
-- Client side and server side validation.
+- Client side and server side validation
 - Context api for state management.
 - Search Functionality.
 - Image Upload with Cloudinary.
