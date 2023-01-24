@@ -14,6 +14,6 @@ Features:
 Technologies & Tools:
 
 - Front-end: React.Js, SASS, CSS3, HTML5, SwiperJs, JavaScript, Sweetalert2, Axios, Cloudinary.
-- Back-end: Node.js, Express.js, MongoDB.
+- Back-end: Node.js, Express.js, MongoDB
 
 Live Project Link: https://weblog00.vercel.app
