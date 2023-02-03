@@ -27,6 +27,7 @@ const Navbar = () => {
         });
     }, []);
 
+    // navigate to login page
     const handleClick = () => {
         navigate('/login');
         setToggler(false);
